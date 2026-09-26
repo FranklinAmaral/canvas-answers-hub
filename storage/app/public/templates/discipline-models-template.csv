@@ -1,0 +1,4 @@
+﻿id;name;description;canvas_blueprint_course_id;provisioning_type;max_students_per_canvas_course;teacher_assignment_mode;replicate_source_teachers;reactivation_allocation_mode;is_active
+;Língua Portuguesa;Modelo EAD N para 1;123;many_to_one;20;candidates_only;true;same_course_even_over_limit;active
+;Metodologia Científica;Modelo EAD N para 1;124;many_to_one;20;candidates_only;true;available_course_or_new_group;active
+;Projeto Integrador Aplicado;Modelo prático 1 para 1;125;one_to_one;;any_source_user;false;same_course_even_over_limit;active

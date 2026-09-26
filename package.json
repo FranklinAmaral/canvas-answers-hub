@@ -1,0 +1,22 @@
+{
+    "$schema": "https://www.schemastore.org/package.json",
+    "name": "graderai",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "build": "vite build",
+        "dev": "vite"
+    },
+    "devDependencies": {
+        "@fontsource/poppins": "^5.1.1",
+        "@popperjs/core": "^2.11.8",
+        "bootstrap": "^5.3.3",
+        "boxicons": "^2.1.4",
+        "htmx.org": "^2.0.4",
+        "laravel-vite-plugin": "^2.0.0",
+        "node-waves": "^0.7.6",
+        "sass": "^1.77.8",
+        "simplebar": "^6.2.7",
+        "vite": "^7.0.7"
+    }
+}

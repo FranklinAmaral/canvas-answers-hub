@@ -1,0 +1,55 @@
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+@import "variables";
+@import "variables-dark";
+@import "bootstrap/scss/bootstrap";
+
+@import "custom/components/root";
+@import "custom/components/reboot";
+@import "custom/components/badge";
+@import "custom/components/buttons";
+@import "custom/components/breadcrumb";
+@import "custom/components/card";
+@import "custom/components/dropdown";
+@import "custom/components/nav";
+@import "custom/components/table";
+@import "custom/components/pagination";
+@import "custom/components/progress";
+@import "custom/components/waves";
+@import "custom/components/avatar";
+@import "custom/components/helper";
+@import "custom/components/forms";
+@import "custom/components/widgets";
+@import "custom/components/print";
+
+@import "custom/structure/general";
+@import "custom/structure/topbar";
+@import "custom/structure/page-head";
+@import "custom/structure/footer";
+@import "custom/structure/vertical";
+@import "custom/structure/layouts";
+
+@import "custom/custom-scrollbar";
+
+.auth-page {
+    min-height: 100vh;
+    background: var(--bs-body-bg);
+}
+
+.auth-shell {
+    width: 100%;
+    max-width: 460px;
+}
+
+.auth-brand img {
+    display: block;
+    width: auto;
+    max-width: 220px;
+    height: 48px;
+    object-fit: contain;
+}
+
+.auth-card {
+    border: 0;
+    box-shadow: 0 0.25rem 1.5rem rgba(18, 38, 63, 0.08);
+}
