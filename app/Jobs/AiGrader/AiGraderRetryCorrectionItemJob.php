@@ -25,17 +25,17 @@ class AiGraderRetryCorrectionItemJob implements ShouldQueue
     use SerializesModels;
 
     public int $tries = 1;
+
     public int $timeout = 3600;
 
     /**
-     * @param array<string, mixed> $metadata
+     * @param  array<string, mixed>  $metadata
      */
     public function __construct(
         public readonly int $correctionItemId,
         public readonly string $retryType,
         public readonly array $metadata = [],
-    ) {
-    }
+    ) {}
 
     public function handle(AiGraderPendingProcessor $processor, AiGraderCanvasPublisher $publisher): void
     {

@@ -21,10 +21,11 @@ class AiGraderCollectSubmissionsJob implements ShouldQueue
     use SerializesModels;
 
     public int $tries = 1;
+
     public int $timeout = 3600;
 
     /**
-     * @param array<string, mixed> $metadata
+     * @param  array<string, mixed>  $metadata
      */
     public function __construct(
         public readonly ?int $organizationId = null,
@@ -36,8 +37,7 @@ class AiGraderCollectSubmissionsJob implements ShouldQueue
         public readonly ?string $childAssignmentId = null,
         public readonly ?int $limit = null,
         public readonly array $metadata = [],
-    ) {
-    }
+    ) {}
 
     /**
      * @return array<string, mixed>
@@ -91,7 +91,7 @@ class AiGraderCollectSubmissionsJob implements ShouldQueue
     }
 
     /**
-     * @param array<string, mixed> $values
+     * @param  array<string, mixed>  $values
      * @return array<string, mixed>
      */
     private function filled(array $values): array

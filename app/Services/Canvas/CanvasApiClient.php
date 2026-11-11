@@ -6,20 +6,18 @@ namespace App\Services\Canvas;
 
 use App\Models\CanvasEnvironment;
 use Illuminate\Http\Client\PendingRequest;
+use Illuminate\Http\Client\Response;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Http;
 use RuntimeException;
-use Illuminate\Http\Client\ConnectionException;
-use Illuminate\Http\Client\Response;
 
 final class CanvasApiClient
 {
     public function __construct(
         private readonly CanvasEnvironment $environment,
-    ) {
-    }
+    ) {}
 
-    public function listAssignments(int|string $courseId): \Illuminate\Support\Collection
+    public function listAssignments(int|string $courseId): Collection
     {
         $url = "/api/v1/courses/{$courseId}/assignments?per_page=100";
 
@@ -86,7 +84,7 @@ final class CanvasApiClient
         return $matches->first();
     }
 
-    public function listSubmissionsForAssignment(int|string $courseId, int|string $assignmentId): \Illuminate\Support\Collection
+    public function listSubmissionsForAssignment(int|string $courseId, int|string $assignmentId): Collection
     {
         return $this->getPaginated(
             "/api/v1/courses/{$courseId}/assignments/{$assignmentId}/submissions?per_page=100&include[]=user&include[]=submission_history"
@@ -94,7 +92,7 @@ final class CanvasApiClient
     }
 
     /**
-     * @param array<string, string|null> $dates
+     * @param  array<string, string|null>  $dates
      * @return array<string, mixed>
      */
     public function updateAssignmentDates(
@@ -116,7 +114,6 @@ final class CanvasApiClient
             ->asForm()
             ->put("/api/v1/courses/{$courseId}/assignments/{$assignmentId}", $payload);
 
-
         $this->throwIfFailed($response, 'PUT', "/api/v1/courses/{$courseId}/assignments/{$assignmentId}");
 
         $data = $response->json();
@@ -128,9 +125,9 @@ final class CanvasApiClient
         return $data;
     }
 
-    private function request(): \Illuminate\Http\Client\PendingRequest
+    private function request(): PendingRequest
     {
-        return \Illuminate\Support\Facades\Http::baseUrl(rtrim($this->environment->base_url, '/'))
+        return Http::baseUrl(rtrim($this->environment->base_url, '/'))
             ->acceptJson()
             ->withToken($this->environment->api_token)
             ->timeout(60)
@@ -187,7 +184,7 @@ final class CanvasApiClient
         };
 
         if ($canvasMessage) {
-            $message .= ' ' . $canvasMessage;
+            $message .= ' '.$canvasMessage;
         }
 
         throw new CanvasApiException(
@@ -204,6 +201,7 @@ final class CanvasApiClient
     {
         return mb_strtolower(trim($value));
     }
+
     private function extractNextPageUrl(?string $linkHeader): ?string
     {
         if (! is_string($linkHeader) || trim($linkHeader) === '') {
@@ -240,7 +238,7 @@ final class CanvasApiClient
             $relativeUrl = $parsed['path'];
 
             if (! empty($parsed['query'])) {
-                $relativeUrl .= '?' . $parsed['query'];
+                $relativeUrl .= '?'.$parsed['query'];
             }
 
             return $relativeUrl;
@@ -248,6 +246,7 @@ final class CanvasApiClient
 
         return null;
     }
+
     /**
      * @return array<string, mixed>
      */
@@ -266,7 +265,7 @@ final class CanvasApiClient
         return $data;
     }
 
-    public function getPaginated(string $url, ?int $maxPages = null, ?string $rootKey = null): \Illuminate\Support\Collection
+    public function getPaginated(string $url, ?int $maxPages = null, ?string $rootKey = null): Collection
     {
         $items = [];
         $page = 0;
@@ -292,6 +291,7 @@ final class CanvasApiClient
 
         return collect($items);
     }
+
     /**
      * @return array<string, mixed>
      */
@@ -309,6 +309,7 @@ final class CanvasApiClient
 
         return $data;
     }
+
     public function get(string $url, array $query = []): array
     {
         $response = $query === []
@@ -380,6 +381,7 @@ final class CanvasApiClient
 
         return is_array($data) ? $data : [];
     }
+
     /**
      * @return array<string, mixed>
      */

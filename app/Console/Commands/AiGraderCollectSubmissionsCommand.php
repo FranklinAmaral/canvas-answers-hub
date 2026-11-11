@@ -44,7 +44,7 @@ class AiGraderCollectSubmissionsCommand extends Command
     }
 
     /**
-     * @param array<string, mixed> $summary
+     * @param  array<string, mixed>  $summary
      */
     private function renderSummary(array $summary): void
     {
@@ -78,13 +78,13 @@ class AiGraderCollectSubmissionsCommand extends Command
             $this->warn('Errors');
 
             foreach ($summary['errors'] as $error) {
-                $this->line('- ' . $error);
+                $this->line('- '.$error);
             }
         }
     }
 
     /**
-     * @param array<int, array<string, mixed>> $mappings
+     * @param  array<int, array<string, mixed>>  $mappings
      */
     private function renderQuestionMappings(array $mappings): void
     {
@@ -108,7 +108,7 @@ class AiGraderCollectSubmissionsCommand extends Command
     }
 
     /**
-     * @param array<int, array<string, mixed>> $items
+     * @param  array<int, array<string, mixed>>  $items
      */
     private function renderItems(array $items): void
     {
@@ -149,7 +149,7 @@ class AiGraderCollectSubmissionsCommand extends Command
     }
 
     /**
-     * @param array<string, int> $strategies
+     * @param  array<string, int>  $strategies
      */
     private function mappingStrategies(array $strategies): string
     {

@@ -18,11 +18,10 @@ class AiGraderPendingProcessor
         private readonly AiGraderCorrectionEvaluator $evaluator,
         private readonly AiGraderQuotaService $quotaService,
         private readonly AiGraderSanitizer $sanitizer,
-    ) {
-    }
+    ) {}
 
     /**
-     * @param array<string, mixed> $filters
+     * @param  array<string, mixed>  $filters
      * @return array<string, mixed>
      */
     public function process(array $filters = []): array
@@ -70,7 +69,7 @@ class AiGraderPendingProcessor
     }
 
     /**
-     * @param array<string, mixed> $filters
+     * @param  array<string, mixed>  $filters
      */
     private function eligibleQuery(array $filters): Builder
     {
@@ -284,7 +283,7 @@ class AiGraderPendingProcessor
     }
 
     /**
-     * @param array<string, mixed> $filters
+     * @param  array<string, mixed>  $filters
      */
     private function providerOverride(array $filters): ?AiGraderAiProvider
     {
@@ -350,7 +349,7 @@ class AiGraderPendingProcessor
             ? (string) $result->rejectionReason
             : $result->feedback;
 
-        return mb_strlen($value) > 80 ? mb_substr($value, 0, 77) . '...' : $value;
+        return mb_strlen($value) > 80 ? mb_substr($value, 0, 77).'...' : $value;
     }
 
     /**

@@ -148,7 +148,7 @@ class AiGraderCanvasSyncService
     }
 
     /**
-     * @param array<string, mixed> $quiz
+     * @param  array<string, mixed>  $quiz
      */
     private function isClassicQuiz(array $quiz): bool
     {
@@ -162,7 +162,7 @@ class AiGraderCanvasSyncService
     }
 
     /**
-     * @param array<string, mixed> $question
+     * @param  array<string, mixed>  $question
      */
     private function neutralCommentsSnapshot(array $question): ?string
     {
@@ -176,7 +176,7 @@ class AiGraderCanvasSyncService
     }
 
     /**
-     * @param array<string, mixed> $rubric
+     * @param  array<string, mixed>  $rubric
      * @return array<string, mixed>
      */
     private function normalizeRubric(array $rubric): array
@@ -197,7 +197,6 @@ class AiGraderCanvasSyncService
     }
 
     /**
-     * @param mixed $criteria
      * @return array<int, array<string, mixed>>
      */
     private function normalizeRubricCriteria(mixed $criteria): array
@@ -226,7 +225,6 @@ class AiGraderCanvasSyncService
     }
 
     /**
-     * @param mixed $ratings
      * @return array<int, array<string, mixed>>
      */
     private function normalizeRubricRatings(mixed $ratings, ?float $criterionMaxPoints): array
@@ -254,7 +252,7 @@ class AiGraderCanvasSyncService
     }
 
     /**
-     * @param array<int, array<string, mixed>> $criteria
+     * @param  array<int, array<string, mixed>>  $criteria
      * @return array<int, array<string, mixed>>
      */
     private function applyCriterionPercentages(array $criteria, ?float $pointsPossible): array

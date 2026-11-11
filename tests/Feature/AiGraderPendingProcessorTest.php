@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
-use App\Models\AiGraderBlueprintConfig;
 use App\Models\AiGraderAiProvider;
+use App\Models\AiGraderBlueprintConfig;
 use App\Models\AiGraderClientSetting;
 use App\Models\AiGraderCorrectionItem;
 use App\Models\AiGraderUsageLog;
@@ -21,7 +21,7 @@ function aiGraderProcessorOrganization(): Organization
 {
     return Organization::query()->create([
         'name' => 'Processor Org',
-        'slug' => 'processor-org-' . uniqid(),
+        'slug' => 'processor-org-'.uniqid(),
         'timezone' => 'America/Sao_Paulo',
         'is_active' => true,
     ]);
@@ -34,7 +34,7 @@ function aiGraderProcessorEnvironment(Organization $organization): CanvasEnviron
     return CanvasEnvironment::query()->create([
         'organization_id' => $organization->id,
         'name' => 'Processor Canvas',
-        'slug' => 'processor-canvas-' . uniqid(),
+        'slug' => 'processor-canvas-'.uniqid(),
         'environment_type' => 'test',
         'base_url' => 'https://canvas.test',
         'api_token' => 'secret-token',
@@ -73,12 +73,12 @@ function aiGraderProcessorItem(Organization $organization, CanvasEnvironment $en
     return AiGraderCorrectionItem::query()->create(array_merge([
         'organization_id' => $organization->id,
         'canvas_environment_id' => $environment->id,
-        'child_course_id' => 'child-' . $unique,
+        'child_course_id' => 'child-'.$unique,
         'canvas_quiz_id' => 'quiz-200',
         'canvas_assignment_id' => 'assignment-300',
-        'canvas_quiz_submission_id' => 'quiz-submission-' . $unique,
-        'canvas_assignment_submission_id' => 'assignment-submission-' . $unique,
-        'canvas_user_id' => 'user-' . $unique,
+        'canvas_quiz_submission_id' => 'quiz-submission-'.$unique,
+        'canvas_assignment_submission_id' => 'assignment-submission-'.$unique,
+        'canvas_user_id' => 'user-'.$unique,
         'canvas_user_name' => 'Processor Student',
         'attempt' => 1,
         'canvas_question_id' => 'question-600',
@@ -95,10 +95,9 @@ function aiGraderProcessorItem(Organization $organization, CanvasEnvironment $en
 
 function aiGraderProcessorWithResult(AiGraderResult $result): AiGraderPendingProcessor
 {
-    $evaluator = new class($result) extends AiGraderCorrectionEvaluator {
-        public function __construct(private readonly AiGraderResult $result)
-        {
-        }
+    $evaluator = new class($result) extends AiGraderCorrectionEvaluator
+    {
+        public function __construct(private readonly AiGraderResult $result) {}
 
         public function evaluate(AiGraderCorrectionItem $item, ?AiGraderAiProvider $providerOverride = null): AiGraderResult
         {
@@ -108,8 +107,8 @@ function aiGraderProcessorWithResult(AiGraderResult $result): AiGraderPendingPro
 
     return new AiGraderPendingProcessor(
         $evaluator,
-        new AiGraderQuotaService(),
-        new AiGraderSanitizer(),
+        new AiGraderQuotaService,
+        new AiGraderSanitizer,
     );
 }
 
@@ -234,10 +233,14 @@ it('keeps auto publish with review flags pending teacher approval when flags exi
 
     app(AiGraderPendingProcessor::class)->process();
 
-    expect($item->fresh()->status)->toBe(AiGraderCorrectionItem::STATUS_PENDING_TEACHER_APPROVAL);
+    $item->refresh();
+
+    expect($item->status)->toBe(AiGraderCorrectionItem::STATUS_PENDING_TEACHER_APPROVAL)
+        ->and($item->publication_mode)->toBe(AiGraderBlueprintConfig::PUBLICATION_TEACHER_APPROVAL)
+        ->and($item->ai_review_flags['mock_provider'])->toBeTrue();
 });
 
-it('changes auto publish with review flags to ai corrected when no flags exist', function (): void {
+it('normalizes legacy publication mode to teacher approval even without review flags', function (): void {
     $organization = aiGraderProcessorOrganization();
     $environment = aiGraderProcessorEnvironment($organization);
     aiGraderProcessorSetting($organization);
@@ -254,7 +257,14 @@ it('changes auto publish with review flags to ai corrected when no flags exist',
 
     $processor->process();
 
-    expect($item->fresh()->status)->toBe(AiGraderCorrectionItem::STATUS_AI_CORRECTED);
+    $item->refresh();
+
+    expect($item->status)->toBe(AiGraderCorrectionItem::STATUS_PENDING_TEACHER_APPROVAL)
+        ->and($item->publication_mode)->toBe(AiGraderBlueprintConfig::PUBLICATION_TEACHER_APPROVAL)
+        ->and($item->review_status)->toBe(AiGraderCorrectionItem::REVIEW_STATUS_PENDING)
+        ->and($item->ai_score)->toEqual(7)
+        ->and($item->ai_feedback)->toBe('Feedback mock sem flags.')
+        ->and($item->ai_review_flags)->toBe([]);
 });
 
 it('does not process skipped blank answer item', function (): void {

@@ -47,7 +47,7 @@ class AiGraderQuotaService
     }
 
     /**
-     * @param array<string, mixed> $usageAttributes
+     * @param  array<string, mixed>  $usageAttributes
      */
     public function consume(AiGraderCorrectionItem $item, array $usageAttributes = []): void
     {
@@ -62,7 +62,7 @@ class AiGraderQuotaService
     }
 
     /**
-     * @param array<string, mixed> $usageAttributes
+     * @param  array<string, mixed>  $usageAttributes
      */
     public function release(AiGraderCorrectionItem $item, array $usageAttributes = []): void
     {
@@ -96,7 +96,7 @@ class AiGraderQuotaService
     }
 
     /**
-     * @param array<string, mixed> $attributes
+     * @param  array<string, mixed>  $attributes
      */
     private function logUsage(AiGraderCorrectionItem $item, string $usageType, array $attributes = []): void
     {

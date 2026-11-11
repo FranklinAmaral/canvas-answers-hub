@@ -15,7 +15,7 @@ function aiGraderPublisherOrganization(): Organization
 {
     return Organization::query()->create([
         'name' => 'Publisher Org',
-        'slug' => 'publisher-org-' . uniqid(),
+        'slug' => 'publisher-org-'.uniqid(),
         'timezone' => 'America/Sao_Paulo',
         'is_active' => true,
     ]);
@@ -28,7 +28,7 @@ function aiGraderPublisherEnvironment(Organization $organization): CanvasEnviron
     return CanvasEnvironment::query()->create([
         'organization_id' => $organization->id,
         'name' => 'Publisher Canvas',
-        'slug' => 'publisher-canvas-' . uniqid(),
+        'slug' => 'publisher-canvas-'.uniqid(),
         'environment_type' => 'test',
         'base_url' => 'https://canvas.test',
         'api_token' => 'secret-token',
@@ -49,7 +49,7 @@ function aiGraderPublisherItem(Organization $organization, CanvasEnvironment $en
         'canvas_assignment_id' => '12',
         'canvas_quiz_submission_id' => '44',
         'canvas_assignment_submission_id' => '900',
-        'canvas_user_id' => 'user-' . $unique,
+        'canvas_user_id' => 'user-'.$unique,
         'canvas_user_name' => 'Publisher Student',
         'attempt' => 1,
         'canvas_question_id' => '29',

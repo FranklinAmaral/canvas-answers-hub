@@ -162,7 +162,7 @@ class AiGraderChildCourseResolver
     }
 
     /**
-     * @param array<string, mixed> $associatedCourse
+     * @param  array<string, mixed>  $associatedCourse
      * @return array<string, mixed>|null
      */
     private function mapQuizForChildCourse(
@@ -215,7 +215,7 @@ class AiGraderChildCourseResolver
      */
     private function findChildQuizByTitle(AiGraderBlueprintConfig $blueprintConfig, string $childCourseId, string $quizTitle): ?array
     {
-        $cacheKey = $blueprintConfig->canvas_environment_id . ':' . $childCourseId;
+        $cacheKey = $blueprintConfig->canvas_environment_id.':'.$childCourseId;
 
         if (! array_key_exists($cacheKey, $this->childQuizCache)) {
             if (! $blueprintConfig->canvasEnvironment) {
@@ -249,7 +249,7 @@ class AiGraderChildCourseResolver
     }
 
     /**
-     * @param array<string, mixed> $mapping
+     * @param  array<string, mixed>  $mapping
      */
     private function persistMapping(AiGraderQuizConfig $quizConfig, array $mapping): void
     {
@@ -272,7 +272,7 @@ class AiGraderChildCourseResolver
     }
 
     /**
-     * @param array<string, mixed> $mapping
+     * @param  array<string, mixed>  $mapping
      * @return array<string, mixed>
      */
     private function groupPayload(AiGraderBlueprintConfig $blueprintConfig, string $childCourseId, array $mapping): array

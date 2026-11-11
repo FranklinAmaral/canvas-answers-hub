@@ -7,7 +7,7 @@ namespace App\Services\AiGrader\Data;
 class AiGraderPromptContext
 {
     /**
-     * @param array<string, mixed> $metadata
+     * @param  array<string, mixed>  $metadata
      */
     public function __construct(
         public readonly string $questionText,
@@ -20,6 +20,5 @@ class AiGraderPromptContext
         public readonly array $rubricSnapshot = [],
         public readonly ?string $studentIdentifier = null,
         public readonly array $metadata = [],
-    ) {
-    }
+    ) {}
 }

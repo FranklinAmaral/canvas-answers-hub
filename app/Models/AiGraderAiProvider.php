@@ -13,6 +13,7 @@ class AiGraderAiProvider extends Model
     protected $table = 'ai_grader_ai_providers';
 
     public const TYPE_MOCK = 'mock';
+
     public const TYPE_LM_STUDIO = 'lm_studio';
 
     /**
@@ -88,7 +89,7 @@ class AiGraderAiProvider extends Model
 
     public function endpointUrl(): string
     {
-        return rtrim((string) $this->base_url, '/') . '/' . ltrim($this->endpointPath(), '/');
+        return rtrim((string) $this->base_url, '/').'/'.ltrim($this->endpointPath(), '/');
     }
 
     public function hasApiKey(): bool

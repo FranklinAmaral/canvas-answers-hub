@@ -19,7 +19,7 @@ function aiGraderSchedulerOrganization(bool $withEnabledSetting = true): Organiz
 {
     $organization = Organization::query()->create([
         'name' => 'Scheduler Org',
-        'slug' => 'scheduler-org-' . uniqid(),
+        'slug' => 'scheduler-org-'.uniqid(),
         'timezone' => 'America/Sao_Paulo',
         'is_active' => true,
     ]);
@@ -54,7 +54,7 @@ function aiGraderSchedulerEnvironment(Organization $organization): CanvasEnviron
     return CanvasEnvironment::query()->create([
         'organization_id' => $organization->id,
         'name' => 'Scheduler Canvas',
-        'slug' => 'scheduler-canvas-' . uniqid(),
+        'slug' => 'scheduler-canvas-'.uniqid(),
         'environment_type' => 'test',
         'base_url' => 'https://canvas.test',
         'api_token' => 'secret-token',
@@ -138,7 +138,7 @@ it('does not dispatch organization without active GraderAI setting', function ()
     aiGraderSchedulerQuiz($blueprint, ['child_courses' => aiGraderSchedulerChildCourses()]);
     Bus::fake();
 
-    $this->artisan('ai-grader:dispatch-scheduled-pipelines --blueprint-config-id=' . $blueprint->id)
+    $this->artisan('ai-grader:dispatch-scheduled-pipelines --blueprint-config-id='.$blueprint->id)
         ->expectsOutputToContain('not_eligible')
         ->assertExitCode(0);
 
@@ -150,7 +150,7 @@ it('does not dispatch manual trigger mode', function (): void {
     aiGraderSchedulerQuiz($blueprint, ['child_courses' => aiGraderSchedulerChildCourses()]);
     Bus::fake();
 
-    $this->artisan('ai-grader:dispatch-scheduled-pipelines --blueprint-config-id=' . $blueprint->id)
+    $this->artisan('ai-grader:dispatch-scheduled-pipelines --blueprint-config-id='.$blueprint->id)
         ->expectsOutputToContain('Skipped manual')
         ->expectsOutputToContain('manual')
         ->assertExitCode(0);
@@ -163,7 +163,7 @@ it('dispatches after submission when child courses exist in settings', function 
     aiGraderSchedulerQuiz($blueprint, ['child_courses' => aiGraderSchedulerChildCourses()]);
     Bus::fake();
 
-    $this->artisan('ai-grader:dispatch-scheduled-pipelines --blueprint-config-id=' . $blueprint->id)
+    $this->artisan('ai-grader:dispatch-scheduled-pipelines --blueprint-config-id='.$blueprint->id)
         ->expectsOutputToContain('Pipelines despachados')
         ->assertExitCode(0);
 
@@ -182,7 +182,7 @@ it('reports an explicit error instead of dispatching without a provider', functi
     aiGraderSchedulerQuiz($blueprint, ['child_courses' => aiGraderSchedulerChildCourses()]);
     Bus::fake();
 
-    $this->artisan('ai-grader:dispatch-scheduled-pipelines --blueprint-config-id=' . $blueprint->id)
+    $this->artisan('ai-grader:dispatch-scheduled-pipelines --blueprint-config-id='.$blueprint->id)
         ->expectsOutputToContain('No enabled AI provider is configured for this organization')
         ->assertExitCode(1);
 
@@ -194,7 +194,7 @@ it('skips after submission without child course mapping', function (): void {
     aiGraderSchedulerQuiz($blueprint);
     Bus::fake();
 
-    $this->artisan('ai-grader:dispatch-scheduled-pipelines --blueprint-config-id=' . $blueprint->id)
+    $this->artisan('ai-grader:dispatch-scheduled-pipelines --blueprint-config-id='.$blueprint->id)
         ->expectsOutputToContain('skipped_missing_child_course_mapping')
         ->assertExitCode(0);
 
@@ -209,7 +209,7 @@ it('does not dispatch after date before scheduled at', function (): void {
     aiGraderSchedulerQuiz($blueprint, ['child_courses' => aiGraderSchedulerChildCourses()]);
     Bus::fake();
 
-    $this->artisan('ai-grader:dispatch-scheduled-pipelines --blueprint-config-id=' . $blueprint->id)
+    $this->artisan('ai-grader:dispatch-scheduled-pipelines --blueprint-config-id='.$blueprint->id)
         ->expectsOutputToContain('scheduled_at_not_reached')
         ->assertExitCode(0);
 
@@ -224,7 +224,7 @@ it('skips after date without scheduled at', function (): void {
     aiGraderSchedulerQuiz($blueprint, ['child_courses' => aiGraderSchedulerChildCourses()]);
     Bus::fake();
 
-    $this->artisan('ai-grader:dispatch-scheduled-pipelines --blueprint-config-id=' . $blueprint->id)
+    $this->artisan('ai-grader:dispatch-scheduled-pipelines --blueprint-config-id='.$blueprint->id)
         ->expectsOutputToContain('skipped_missing_scheduled_at')
         ->assertExitCode(0);
 
@@ -239,7 +239,7 @@ it('dispatches after date when scheduled at was reached and marks settings', fun
     $quizConfig = aiGraderSchedulerQuiz($blueprint, ['child_courses' => aiGraderSchedulerChildCourses()]);
     Bus::fake();
 
-    $this->artisan('ai-grader:dispatch-scheduled-pipelines --blueprint-config-id=' . $blueprint->id)
+    $this->artisan('ai-grader:dispatch-scheduled-pipelines --blueprint-config-id='.$blueprint->id)
         ->assertExitCode(0);
 
     Bus::assertDispatched(AiGraderRunPipelineJob::class);
@@ -258,7 +258,7 @@ it('does not dispatch after date again when already dispatched after scheduled a
     ]);
     Bus::fake();
 
-    $this->artisan('ai-grader:dispatch-scheduled-pipelines --blueprint-config-id=' . $blueprint->id)
+    $this->artisan('ai-grader:dispatch-scheduled-pipelines --blueprint-config-id='.$blueprint->id)
         ->expectsOutputToContain('after_date_already_dispatched')
         ->assertExitCode(0);
 
@@ -281,7 +281,7 @@ it('executes pipeline synchronously when sync option is used', function (): void
     $this->app->instance(AiGraderPendingProcessor::class, $processor);
     $this->app->instance(AiGraderCanvasPublisher::class, $publisher);
 
-    $this->artisan('ai-grader:dispatch-scheduled-pipelines --blueprint-config-id=' . $blueprint->id . ' --sync')
+    $this->artisan('ai-grader:dispatch-scheduled-pipelines --blueprint-config-id='.$blueprint->id.' --sync')
         ->expectsOutputToContain('Pipelines executados sync')
         ->assertExitCode(0);
 });
@@ -291,7 +291,7 @@ it('dispatches job to queue without sync option', function (): void {
     aiGraderSchedulerQuiz($blueprint, ['child_courses' => aiGraderSchedulerChildCourses()]);
     Bus::fake();
 
-    $this->artisan('ai-grader:dispatch-scheduled-pipelines --blueprint-config-id=' . $blueprint->id)
+    $this->artisan('ai-grader:dispatch-scheduled-pipelines --blueprint-config-id='.$blueprint->id)
         ->expectsOutputToContain('Blueprints avaliadas')
         ->expectsOutputToContain('Pipelines despachados')
         ->assertExitCode(0);

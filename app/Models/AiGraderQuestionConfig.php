@@ -13,7 +13,9 @@ class AiGraderQuestionConfig extends Model
     protected $table = 'ai_grader_question_configs';
 
     public const TYPE_ESSAY = 'essay_question';
+
     public const CORRECTION_MODE_SIMPLE = 'simple';
+
     public const CORRECTION_MODE_CANVAS_RUBRIC = 'canvas_rubric';
 
     protected $fillable = [

@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
-use App\Models\AiGraderBlueprintConfig;
 use App\Models\AiGraderAiProvider;
+use App\Models\AiGraderBlueprintConfig;
 use App\Models\AiGraderClientSetting;
 use App\Models\AiGraderQuestionConfig;
 use App\Models\AiGraderQuizConfig;
@@ -17,7 +17,7 @@ function aiGraderBlueprintOrganization(array $overrides = []): Organization
 {
     return Organization::query()->create(array_merge([
         'name' => 'Blueprint Org',
-        'slug' => 'blueprint-org-' . uniqid(),
+        'slug' => 'blueprint-org-'.uniqid(),
         'timezone' => 'America/Sao_Paulo',
         'is_active' => true,
     ], $overrides));
@@ -30,7 +30,7 @@ function aiGraderBlueprintEnvironment(Organization $organization): CanvasEnviron
     return CanvasEnvironment::query()->create([
         'organization_id' => $organization->id,
         'name' => 'Canvas Blueprint',
-        'slug' => 'canvas-blueprint-' . uniqid(),
+        'slug' => 'canvas-blueprint-'.uniqid(),
         'environment_type' => 'test',
         'base_url' => 'https://canvas.test',
         'api_token' => 'secret-token',

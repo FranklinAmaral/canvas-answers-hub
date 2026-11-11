@@ -13,24 +13,41 @@ class AiGraderCorrectionItem extends Model
     protected $table = 'ai_grader_correction_items';
 
     public const STATUS_PENDING = 'pending';
+
     public const STATUS_PENDING_QUOTA = 'pending_quota';
+
     public const STATUS_PENDING_CONFIGURATION = 'pending_configuration';
+
     public const STATUS_PROCESSING = 'processing';
+
     public const STATUS_AI_CORRECTED = 'ai_corrected';
+
     public const STATUS_AI_REJECTED = 'ai_rejected';
+
     public const STATUS_PENDING_TEACHER_APPROVAL = 'pending_teacher_approval';
+
     public const STATUS_APPROVED_BY_TEACHER = 'approved_by_teacher';
+
     public const STATUS_ADJUSTED_BY_TEACHER = 'adjusted_by_teacher';
+
     public const STATUS_PUBLISHED_TO_CANVAS = 'published_to_canvas';
+
     public const STATUS_PUBLICATION_FAILED = 'publication_failed';
+
     public const STATUS_FAILED = 'failed';
+
     public const STATUS_SKIPPED_BLANK_ANSWER = 'skipped_blank_answer';
+
     public const STATUS_SKIPPED_NOT_ESSAY = 'skipped_not_essay';
+
     public const STATUS_SKIPPED_ALREADY_PROCESSED = 'skipped_already_processed';
 
     public const REVIEW_STATUS_PENDING = 'pending';
+
     public const REVIEW_STATUS_DRAFT = 'draft';
+
     public const REVIEW_STATUS_APPROVED = 'approved';
+
     public const REVIEW_STATUS_PUBLISHED = 'published';
 
     protected $fillable = [

@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Services\AiGrader;
 
-use App\Models\AiGraderCorrectionItem;
 use App\Models\AiGraderAiProvider;
+use App\Models\AiGraderCorrectionItem;
 use App\Services\AiGrader\Data\AiGraderResult;
 
 class AiGraderCorrectionEvaluator
@@ -14,8 +14,7 @@ class AiGraderCorrectionEvaluator
         private readonly AiGraderPromptBuilder $promptBuilder,
         private readonly AiGraderProviderResolver $providerResolver,
         private readonly AiGraderScoreNormalizer $scoreNormalizer,
-    ) {
-    }
+    ) {}
 
     public function evaluate(AiGraderCorrectionItem $item, ?AiGraderAiProvider $providerOverride = null): AiGraderResult
     {

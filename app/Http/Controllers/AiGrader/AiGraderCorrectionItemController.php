@@ -19,8 +19,7 @@ class AiGraderCorrectionItemController extends Controller
 {
     public function __construct(
         private readonly AiGraderSanitizer $sanitizer,
-    ) {
-    }
+    ) {}
 
     public function index(Request $request): View
     {
@@ -163,7 +162,7 @@ class AiGraderCorrectionItemController extends Controller
     }
 
     /**
-     * @param array<string|int, mixed> $value
+     * @param  array<string|int, mixed>  $value
      */
     private function toPrettyJson(array $value): string
     {

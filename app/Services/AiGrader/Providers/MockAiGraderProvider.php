@@ -15,8 +15,7 @@ class MockAiGraderProvider implements AiGraderProviderInterface
 {
     public function __construct(
         private readonly ?AiGraderAiProvider $provider = null,
-    ) {
-    }
+    ) {}
 
     public function grade(AiGraderCorrectionItem $item, AiGraderPromptContext $context): AiGraderResult
     {
@@ -38,17 +37,15 @@ class MockAiGraderProvider implements AiGraderProviderInterface
         };
 
         $score = $pointsPossible * $factor;
+        $locale = in_array($context->feedbackLanguage, ['pt_BR', 'en'], true) ? $context->feedbackLanguage : 'pt_BR';
+        $feedbackParameters = ['length' => $answerLength, 'percentage' => $factor * 100];
 
         if ($context->correctionMode === AiGraderQuestionConfig::CORRECTION_MODE_CANVAS_RUBRIC && ($context->rubricSnapshot['criteria'] ?? []) !== []) {
             $rubricFeedback = $this->rubricFeedback($context, $factor * 100);
 
             return new AiGraderResult(
                 score: $score,
-                feedback: sprintf(
-                    'Correcao simulada/mock com rubrica: resposta com %d caracteres. Resultado geral estimado em %.0f%% da pontuacao maxima.',
-                    $answerLength,
-                    $factor * 100,
-                ),
+                feedback: __('ai-grader.mock_provider.rubric_feedback', $feedbackParameters, $locale),
                 rubricPercentage: $factor * 100,
                 rubricFeedback: $rubricFeedback,
                 confidence: 'mock',
@@ -68,11 +65,7 @@ class MockAiGraderProvider implements AiGraderProviderInterface
 
         return new AiGraderResult(
             score: $score,
-            feedback: sprintf(
-                'Correcao simulada/mock: resposta com %d caracteres. Criterio mock aplicado: %.0f%% da pontuacao maxima.',
-                $answerLength,
-                $factor * 100,
-            ),
+            feedback: __('ai-grader.mock_provider.feedback', $feedbackParameters, $locale),
             confidence: 'mock',
             reviewFlags: [
                 'mock_provider' => true,
@@ -101,6 +94,7 @@ class MockAiGraderProvider implements AiGraderProviderInterface
      */
     private function rubricFeedback(AiGraderPromptContext $context, float $percentage): array
     {
+        $locale = in_array($context->feedbackLanguage, ['pt_BR', 'en'], true) ? $context->feedbackLanguage : 'pt_BR';
         $criteria = $context->rubricSnapshot['criteria'] ?? [];
 
         if (! is_array($criteria)) {
@@ -116,11 +110,11 @@ class MockAiGraderProvider implements AiGraderProviderInterface
 
             $feedback[] = [
                 'criterion_id' => (string) ($criterion['id'] ?? ''),
-                'criterion_name' => (string) ($criterion['name'] ?? $criterion['description'] ?? $criterion['id'] ?? 'Criterio'),
+                'criterion_name' => (string) ($criterion['name'] ?? $criterion['description'] ?? $criterion['id'] ?? __('ai-grader.mock_provider.criterion', [], $locale)),
                 'percentage' => round($percentage, 2),
                 'max_percentage' => is_numeric($criterion['max_percentage'] ?? null) ? round((float) $criterion['max_percentage'], 2) : null,
                 'max_points' => is_numeric($criterion['max_points'] ?? null) ? round((float) $criterion['max_points'], 2) : null,
-                'feedback' => 'Analise simulada pelo provider mock para este criterio.',
+                'feedback' => __('ai-grader.mock_provider.criterion_feedback', [], $locale),
             ];
         }
 

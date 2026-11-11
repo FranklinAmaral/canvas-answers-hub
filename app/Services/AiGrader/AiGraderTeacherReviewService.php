@@ -14,12 +14,11 @@ class AiGraderTeacherReviewService
     public function __construct(
         private readonly AiGraderCanvasPublisher $publisher,
         private readonly AiGraderScoreNormalizer $scoreNormalizer,
-    ) {
-    }
+    ) {}
 
     /**
-     * @param array<string, mixed> $payload
-     * @param array<string, mixed> $reviewer
+     * @param  array<string, mixed>  $payload
+     * @param  array<string, mixed>  $reviewer
      */
     public function saveDraft(AiGraderCorrectionItem $item, array $payload, array $reviewer): AiGraderCorrectionItem
     {
@@ -52,8 +51,8 @@ class AiGraderTeacherReviewService
     }
 
     /**
-     * @param array<string, mixed> $payload
-     * @param array<string, mixed> $reviewer
+     * @param  array<string, mixed>  $payload
+     * @param  array<string, mixed>  $reviewer
      * @return array<string, mixed>
      */
     public function publish(AiGraderCorrectionItem $item, array $payload, array $reviewer): array
@@ -97,7 +96,7 @@ class AiGraderTeacherReviewService
     }
 
     /**
-     * @param array<string, mixed> $payload
+     * @param  array<string, mixed>  $payload
      * @return array{0: float, 1: string}
      */
     private function resolvedReviewValues(AiGraderCorrectionItem $item, array $payload): array
@@ -113,7 +112,7 @@ class AiGraderTeacherReviewService
     }
 
     /**
-     * @param array<string, mixed> $payload
+     * @param  array<string, mixed>  $payload
      * @return array<int, array<string, mixed>>|null
      */
     private function resolvedRubricFeedback(AiGraderCorrectionItem $item, array $payload): ?array
@@ -157,7 +156,7 @@ class AiGraderTeacherReviewService
     }
 
     /**
-     * @param array<int, array<string, mixed>>|null $rubricFeedback
+     * @param  array<int, array<string, mixed>>|null  $rubricFeedback
      */
     private function rubricScore(AiGraderCorrectionItem $item, ?array $rubricFeedback): ?float
     {
@@ -185,7 +184,7 @@ class AiGraderTeacherReviewService
     }
 
     /**
-     * @param array<string, mixed> $reviewer
+     * @param  array<string, mixed>  $reviewer
      */
     private function logReviewChanges(
         AiGraderCorrectionItem $item,
@@ -211,8 +210,8 @@ class AiGraderTeacherReviewService
     }
 
     /**
-     * @param array<string, mixed> $reviewer
-     * @param array<string, mixed> $metadata
+     * @param  array<string, mixed>  $reviewer
+     * @param  array<string, mixed>  $metadata
      */
     private function logAction(
         AiGraderCorrectionItem $item,

@@ -15,7 +15,7 @@ function aiGraderProviderOrganization(): Organization
 
     return Organization::query()->create([
         'name' => 'Provider Org',
-        'slug' => 'provider-org-' . uniqid(),
+        'slug' => 'provider-org-'.uniqid(),
         'timezone' => 'America/Sao_Paulo',
         'is_active' => true,
     ]);

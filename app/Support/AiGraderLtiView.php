@@ -11,7 +11,7 @@ use Illuminate\Support\Str;
 class AiGraderLtiView
 {
     /**
-     * @param CarbonInterface|string|null $value
+     * @param  CarbonInterface|string|null  $value
      */
     public static function formatDateTime(mixed $value, string $fallback = '-'): string
     {
@@ -55,7 +55,7 @@ class AiGraderLtiView
     }
 
     /**
-     * @param array<int, array<string, mixed>> $ratings
+     * @param  array<int, array<string, mixed>>  $ratings
      * @return array<string, mixed>|null
      */
     public static function findMatchingRubricRating(array $ratings, ?string $label = null, ?float $percentage = null): ?array

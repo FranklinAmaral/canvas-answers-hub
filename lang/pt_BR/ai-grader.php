@@ -1,6 +1,12 @@
 <?php
 
 return [
+    'mock_provider' => [
+        'feedback' => 'Correção simulada/mock: resposta com :length caracteres. Critério mock aplicado: :percentage% da pontuação máxima.',
+        'rubric_feedback' => 'Correção simulada/mock com rubrica: resposta com :length caracteres. Resultado geral estimado em :percentage% da pontuação máxima.',
+        'criterion_feedback' => 'Análise simulada pelo provider mock para este critério.',
+        'criterion' => 'Critério',
+    ],
     'common' => [
         'all' => 'Todos',
         'back' => 'Voltar',

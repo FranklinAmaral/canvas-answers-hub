@@ -9,8 +9,8 @@ use InvalidArgumentException;
 class AiGraderResult
 {
     /**
-     * @param array<string, mixed> $reviewFlags
-     * @param array<string, mixed> $rawResponse
+     * @param  array<string, mixed>  $reviewFlags
+     * @param  array<string, mixed>  $rawResponse
      */
     public function __construct(
         public readonly float $score,

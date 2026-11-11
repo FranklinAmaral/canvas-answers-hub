@@ -12,8 +12,7 @@ class AiGraderLtiInstallationController extends Controller
 {
     public function __construct(
         private readonly AiGraderLtiConfigService $ltiConfigService,
-    ) {
-    }
+    ) {}
 
     public function index(): View
     {

@@ -41,7 +41,7 @@ class AiGraderAiProviderController extends Controller
 
     public function create(): View
     {
-        return view('ai-grader.ai-providers.create', $this->formData(new AiGraderAiProvider()));
+        return view('ai-grader.ai-providers.create', $this->formData(new AiGraderAiProvider));
     }
 
     public function store(UpsertAiGraderAiProviderRequest $request): RedirectResponse
@@ -108,8 +108,7 @@ class AiGraderAiProviderController extends Controller
         AiGraderAiProvider $provider,
         AiGraderProviderResolver $providerResolver,
         AiGraderSanitizer $sanitizer,
-    ): RedirectResponse
-    {
+    ): RedirectResponse {
         try {
             $resolvedProvider = $providerResolver->resolve($provider);
 
@@ -123,14 +122,14 @@ class AiGraderAiProviderController extends Controller
 
             $result = $resolvedProvider->testConnection();
         } catch (Throwable $exception) {
-            return back()->with('error', 'Nao foi possivel testar o provider: ' . mb_substr($sanitizer->sanitizeString($exception->getMessage()), 0, 300));
+            return back()->with('error', 'Nao foi possivel testar o provider: '.mb_substr($sanitizer->sanitizeString($exception->getMessage()), 0, 300));
         }
 
         if ((bool) ($result['ok'] ?? false)) {
             return back()->with('success', 'Conexao com LM Studio realizada com sucesso.');
         }
 
-        return back()->with('error', 'Nao foi possivel conectar ao LM Studio: ' . mb_substr((string) ($result['message'] ?? 'erro desconhecido'), 0, 300));
+        return back()->with('error', 'Nao foi possivel conectar ao LM Studio: '.mb_substr((string) ($result['message'] ?? 'erro desconhecido'), 0, 300));
     }
 
     /**
@@ -190,7 +189,7 @@ class AiGraderAiProviderController extends Controller
     }
 
     /**
-     * @param array<string, mixed> $validated
+     * @param  array<string, mixed>  $validated
      * @return array<string, mixed>
      */
     private function settingsFromRequest(array $validated, ?AiGraderAiProvider $provider = null): array

@@ -17,6 +17,14 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Testing\TestResponse;
 
+function aiGraderLtiUnsignedToken(array $claims): string
+{
+    $encode = static fn (array $data): string => rtrim(strtr(base64_encode(json_encode($data, JSON_THROW_ON_ERROR)), '+/', '-_'), '=');
+    $claims['jti'] = bin2hex(random_bytes(16));
+
+    return $encode(['alg' => 'none', 'typ' => 'JWT']).'.'.$encode($claims).'.';
+}
+
 function aiGraderLtiContext(string $courseId = '11', string $role = 'Instructor'): array
 {
     $environment = CanvasEnvironment::query()->latest('id')->first();
@@ -278,13 +286,13 @@ it('launch in child course shows teacher correction list', function (): void {
 
     $this->get(route('lti.ai-grader.index', aiGraderLtiContext('11')))
         ->assertOk()
-        ->assertSee('Correcoes do GraderAI')
+        ->assertSee('Correções do GraderAI')
         ->assertSee('Maria Student')
         ->assertSee('Child Essay')
         ->assertSee('ai_corrected')
         ->assertSee('Detalhes')
         ->assertDontSee('Configurar GraderAI nesta blueprint')
-        ->assertDontSee('Configuracao da blueprint')
+        ->assertDontSee('Configuração da blueprint')
         ->assertDontSee('Configurar Classic Quizzes');
 });
 
@@ -314,7 +322,7 @@ it('launch uses legacy is_blueprint false when blueprint field is absent', funct
 
     $this->get(route('lti.ai-grader.index', aiGraderLtiContext('11')))
         ->assertOk()
-        ->assertSee('Correcoes do GraderAI')
+        ->assertSee('Correções do GraderAI')
         ->assertDontSee('Configurar GraderAI nesta blueprint');
 });
 
@@ -371,7 +379,9 @@ it('blocks missing roles', function (): void {
 it('does not accept an unsigned id token or a caller-supplied state', function (): void {
     aiGraderLtiCorrectionItem();
 
-    $token = 'eyJhbGciOiJub25lIn0.eyJub25jZSI6Im5vbmNlLTEyMyJ9.';
+    $token = aiGraderLtiUnsignedToken([
+        'nonce' => 'nonce-123',
+    ]);
 
     $this->post('http://graderai.example.test/lti/launch', [
         'id_token' => $token,
@@ -385,7 +395,9 @@ it('does not accept an unsigned id token or a caller-supplied state', function (
 it('does not use flat custom claims from an unverified token', function (): void {
     aiGraderLtiBlueprintFixture();
 
-    $token = 'eyJhbGciOiJub25lIn0.eyJodHRwczovL3B1cmwuaW1zZ2xvYmFsLm9yZy9zcGVjL2x0aS9jbGFpbS9jdXN0b20uY2FudmFzX2NvdXJzZV9pZCI6IjMifQ.';
+    $token = aiGraderLtiUnsignedToken([
+        'https://purl.imsglobal.org/spec/lti/claim/custom.canvas_course_id' => '3',
+    ]);
 
     $this->post('http://graderai.example.test/lti/launch', ['id_token' => $token])
         ->assertBadRequest()
@@ -515,7 +527,7 @@ it('allows instructor role without administrative login', function (): void {
 
     $this->get(route('lti.ai-grader.index', aiGraderLtiContext('11', 'Instructor')))
         ->assertOk()
-        ->assertSee('Correcoes do GraderAI');
+        ->assertSee('Correções do GraderAI');
 });
 
 it('shows setup screen when blueprint course has no GraderAI configuration', function (): void {
@@ -526,7 +538,7 @@ it('shows setup screen when blueprint course has no GraderAI configuration', fun
         ->assertOk()
         ->assertSee('Configurar GraderAI nesta blueprint')
         ->assertSee('course_id 300')
-        ->assertSee('Esta blueprint ainda nao esta habilitada para correcao por IA.');
+        ->assertSee('Esta blueprint ainda não está habilitada para correção por IA.');
 });
 
 it('validated session context renders setup screen for blueprint course without configuration', function (): void {
@@ -554,7 +566,7 @@ it('shows empty child course state when a child course mapping already exists', 
 
     $this->get(route('lti.ai-grader.index', aiGraderLtiContext('99')))
         ->assertOk()
-        ->assertSee('Nenhuma correcao encontrada para esta disciplina.')
+        ->assertSee('Nenhum item encontrado com os filtros atuais.')
         ->assertDontSee('Configurar GraderAI nesta blueprint');
 });
 
@@ -647,7 +659,7 @@ it('configured blueprint screen shows provider and modes', function (): void {
         ->assertSee('Mock LTI Provider')
         ->assertSee(AiGraderBlueprintConfig::PUBLICATION_TEACHER_APPROVAL)
         ->assertSee(AiGraderBlueprintConfig::TRIGGER_MANUAL)
-        ->assertSee('Configuracao da blueprint');
+        ->assertSee('Configuração da blueprint');
 });
 
 it('saving blueprint settings again updates without 404', function (): void {
@@ -666,7 +678,7 @@ it('saving blueprint settings again updates without 404', function (): void {
 
     assertAiGraderLtiRedirect($response, aiGraderLtiRedirectQuery($context));
 
-    $response->assertSessionHas('success', 'Configuracoes da blueprint atualizadas.');
+    $response->assertSessionHas('success', 'Configurações da blueprint atualizadas.');
 
     $this->assertDatabaseHas('ai_grader_blueprint_configs', [
         'id' => $fixture['blueprint']->id,
@@ -789,7 +801,7 @@ it('saving essay question instructions redirects back to the current question wi
     ]));
 
     assertAiGraderLtiRedirect($response, aiGraderLtiRedirectQuery($context), 'question-'.$fixture['question']->id);
-    $response->assertSessionHas('success', 'Questao discursiva atualizada.');
+    $response->assertSessionHas('success', 'Questão discursiva atualizada.');
 
     $this->assertDatabaseHas('ai_grader_question_configs', [
         'id' => $fixture['question']->id,
@@ -808,11 +820,11 @@ it('blueprint screen exposes classic quizzes configuration action', function ():
     $this->get(route('lti.ai-grader.index', aiGraderLtiContext('3')))
         ->assertOk()
         ->assertSee('Configurar Classic Quizzes')
-        ->assertSee('Selecione quais Classic quizzes desta blueprint deseja habilitar para correcao pelo GraderAI.')
-        ->assertSee('Configure as questoes discursivas que serao corrigidas pelo GraderAI e informe as orientacoes de correcao para cada uma.')
+        ->assertSee('Selecione quais Classic Quizzes desta blueprint deseja habilitar para correção pelo GraderAI.')
+        ->assertSee('Configure as questões discursivas que serão corrigidas pelo GraderAI e informe as orientações de correção para cada uma.')
         ->assertSee('Configurar discursivas')
         ->assertDontSee('Sincronizar discursivas')
-        ->assertSee('Ver exemplo de orientacoes')
+        ->assertSee('Ver exemplo de orientações')
         ->assertSee('Usar este exemplo')
         ->assertSee($fixture['quiz']->canvas_quiz_title);
 });
@@ -915,7 +927,9 @@ it('blocks LTI blueprint settings updates from another course context', function
         'trigger_mode' => AiGraderBlueprintConfig::TRIGGER_MANUAL,
     ]))
         ->assertForbidden()
-        ->assertSee('Esta acao LTI nao pertence a esta blueprint.');
+        ->assertSee('Esta ação LTI não pertence a esta blueprint.');
+
+    expect($fixture['blueprint']->fresh()->publication_mode)->toBe(AiGraderBlueprintConfig::PUBLICATION_AUTO_PUBLISH);
 });
 
 it('shows a friendly message when the internal LTI context has expired', function (): void {
@@ -938,6 +952,9 @@ it('blocks LTI question updates from another course context', function (): void 
     ]))
         ->assertForbidden()
         ->assertSee('deployment_not_allowed');
+
+    expect($fixture['question']->fresh()->ai_grading_instructions)
+        ->toBe($fixture['question']->ai_grading_instructions);
 });
 
 it('shows correction detail for current child course', function (): void {
@@ -949,7 +966,9 @@ it('shows correction detail for current child course', function (): void {
         ->assertSee('Resposta discursiva da Maria.')
         ->assertSee('Feedback da IA para Maria.')
         ->assertSee('Feedback publicado no Canvas.')
-        ->assertSee('position_type');
+        ->assertDontSee('position_type')
+        ->assertViewHas('correctionItem', fn (AiGraderCorrectionItem $shown): bool => $shown->is($item)
+            && $shown->metadata['question_mapping_strategy'] === 'position_type');
 });
 
 it('responds to LTI routes on grader domain', function (): void {
@@ -957,7 +976,7 @@ it('responds to LTI routes on grader domain', function (): void {
 
     $this->get(route('lti.ai-grader.index', aiGraderLtiContext('11')))
         ->assertOk()
-        ->assertSee('Correcoes do GraderAI')
+        ->assertSee('Correções do GraderAI')
         ->assertSee('Maria Student');
 
     $this->get('http://graderai.example.test/lti/jwks')
@@ -968,7 +987,7 @@ it('responds to LTI routes on grader domain', function (): void {
 it('shows informational page for bare LTI URL without context', function (): void {
     $this->get('http://graderai.example.test/lti')
         ->assertOk()
-        ->assertSee('Esta URL e da ferramenta GraderAI')
+        ->assertSee('Esta URL é da ferramenta GraderAI')
         ->assertSee('acesse pelo menu do curso no Canvas')
         ->assertDontSee('missing_course_context')
         ->assertDontSee('Acesso nao permitido');
@@ -998,12 +1017,12 @@ it('loads public LTI installation page on grader domain', function (): void {
 
     $this->get('http://graderai.example.test/lti/install')
         ->assertOk()
-        ->assertSee('Instalacao LTI do GraderAI')
+        ->assertSee('Instalação LTI do GraderAI')
         ->assertSee('https://graderai.example.test/lti/login')
         ->assertSee('https://graderai.example.test/lti/launch')
         ->assertSee('https://graderai.example.test/lti/jwks')
         ->assertSee('https://graderai.example.test/lti/config')
-        ->assertSee('JSON de configuracao da LTI')
+        ->assertSee('JSON de configuração da LTI')
         ->assertSee('canvas_course_id')
         ->assertSee('Admin &gt; Developer Keys', false);
 });

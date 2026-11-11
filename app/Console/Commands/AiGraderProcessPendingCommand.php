@@ -50,7 +50,7 @@ class AiGraderProcessPendingCommand extends Command
     }
 
     /**
-     * @param array<string, mixed> $summary
+     * @param  array<string, mixed>  $summary
      */
     private function renderSummary(array $summary): void
     {
@@ -72,7 +72,7 @@ class AiGraderProcessPendingCommand extends Command
     }
 
     /**
-     * @param array<int, array<string, mixed>> $items
+     * @param  array<int, array<string, mixed>>  $items
      */
     private function renderItems(array $items): void
     {
@@ -128,6 +128,6 @@ class AiGraderProcessPendingCommand extends Command
             return $value;
         }
 
-        return mb_substr($value, 0, max(0, $limit - 3)) . '...';
+        return mb_substr($value, 0, max(0, $limit - 3)).'...';
     }
 }

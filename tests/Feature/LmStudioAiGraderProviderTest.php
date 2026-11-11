@@ -19,7 +19,7 @@ function lmStudioOrganization(): Organization
 
     return Organization::query()->create([
         'name' => 'LM Studio Org',
-        'slug' => 'lm-studio-org-' . uniqid(),
+        'slug' => 'lm-studio-org-'.uniqid(),
         'timezone' => 'America/Sao_Paulo',
         'is_active' => true,
     ]);
@@ -48,7 +48,7 @@ function lmStudioItem(Organization $organization): AiGraderCorrectionItem
     $environment = CanvasEnvironment::query()->create([
         'organization_id' => $organization->id,
         'name' => 'Canvas',
-        'slug' => 'canvas-' . uniqid(),
+        'slug' => 'canvas-'.uniqid(),
         'environment_type' => 'test',
         'base_url' => 'https://canvas.test',
         'api_token' => 'canvas-token',
@@ -87,7 +87,7 @@ function lmStudioContext(): AiGraderPromptContext
 
 function lmStudioService(AiGraderAiProvider $provider): LmStudioAiGraderProvider
 {
-    return new LmStudioAiGraderProvider($provider, new AiGraderPromptBuilder(), new AiGraderSanitizer());
+    return new LmStudioAiGraderProvider($provider, new AiGraderPromptBuilder, new AiGraderSanitizer);
 }
 
 it('builds endpoint from base url and endpoint path and sends authorization bearer', function (): void {

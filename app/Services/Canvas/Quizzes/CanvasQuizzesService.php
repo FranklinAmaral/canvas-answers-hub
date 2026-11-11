@@ -14,8 +14,7 @@ final class CanvasQuizzesService
 
     public function __construct(
         private readonly CanvasApiClient $client,
-    ) {
-    }
+    ) {}
 
     public function listQuizzes(int|string $courseId): Collection
     {
@@ -190,7 +189,7 @@ final class CanvasQuizzesService
     }
 
     /**
-     * @param array<string, mixed> $settings
+     * @param  array<string, mixed>  $settings
      * @return array<string, mixed>
      */
     public function updateAnswerVisibility(

@@ -24,8 +24,7 @@ class LmStudioAiGraderProvider implements AiGraderProviderInterface
         private readonly AiGraderAiProvider $provider,
         private readonly AiGraderPromptBuilder $promptBuilder,
         private readonly AiGraderSanitizer $sanitizer,
-    ) {
-    }
+    ) {}
 
     public function grade(AiGraderCorrectionItem $item, AiGraderPromptContext $context): AiGraderResult
     {
@@ -246,7 +245,6 @@ class LmStudioAiGraderProvider implements AiGraderProviderInterface
     }
 
     /**
-     * @param mixed $flags
      * @return array<string, mixed>
      */
     private function reviewFlags(mixed $flags): array
@@ -259,7 +257,6 @@ class LmStudioAiGraderProvider implements AiGraderProviderInterface
     }
 
     /**
-     * @param mixed $items
      * @return array<int, array<string, mixed>>
      */
     private function rubricFeedback(mixed $items, AiGraderPromptContext $context): array
@@ -326,7 +323,6 @@ class LmStudioAiGraderProvider implements AiGraderProviderInterface
     }
 
     /**
-     * @param mixed $criteria
      * @return array<string, array<string, mixed>>
      */
     private function criteriaLookup(mixed $criteria): array
@@ -355,7 +351,7 @@ class LmStudioAiGraderProvider implements AiGraderProviderInterface
     }
 
     /**
-     * @param array<int, array<string, mixed>> $rubricFeedback
+     * @param  array<int, array<string, mixed>>  $rubricFeedback
      */
     private function overallRubricPercentage(array $rubricFeedback): ?float
     {
@@ -378,7 +374,7 @@ class LmStudioAiGraderProvider implements AiGraderProviderInterface
     }
 
     /**
-     * @param array<int, array<string, mixed>> $rubricFeedback
+     * @param  array<int, array<string, mixed>>  $rubricFeedback
      */
     private function feedbackFromRubricFeedback(array $rubricFeedback): string
     {
@@ -392,7 +388,7 @@ class LmStudioAiGraderProvider implements AiGraderProviderInterface
                 continue;
             }
 
-            $lines[] = $name . ': ' . $feedback;
+            $lines[] = $name.': '.$feedback;
         }
 
         return implode("\n", $lines);
@@ -416,7 +412,7 @@ class LmStudioAiGraderProvider implements AiGraderProviderInterface
 
     private function usageValue(Response $response, string $key): ?int
     {
-        $value = data_get($response->json(), 'usage.' . $key);
+        $value = data_get($response->json(), 'usage.'.$key);
 
         return is_numeric($value) ? (int) $value : null;
     }
@@ -426,7 +422,7 @@ class LmStudioAiGraderProvider implements AiGraderProviderInterface
         $body = $this->responseBody($response);
         $message = data_get($body, 'message') ?: data_get($body, 'error') ?: $response->body();
 
-        return mb_substr($this->sanitizer->sanitizeString('[HTTP ' . $response->status() . '] ' . (string) $message), 0, 500);
+        return mb_substr($this->sanitizer->sanitizeString('[HTTP '.$response->status().'] '.(string) $message), 0, 500);
     }
 
     private function timeoutSeconds(): int

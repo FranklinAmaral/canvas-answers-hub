@@ -18,11 +18,10 @@ class AiGraderCanvasPublisher
     public function __construct(
         private readonly AiGraderScoreNormalizer $scoreNormalizer,
         private readonly AiGraderSanitizer $sanitizer,
-    ) {
-    }
+    ) {}
 
     /**
-     * @param array<string, mixed> $filters
+     * @param  array<string, mixed>  $filters
      * @return array<string, mixed>
      */
     public function publish(array $filters = []): array
@@ -58,7 +57,7 @@ class AiGraderCanvasPublisher
     }
 
     /**
-     * @param array<string, mixed> $filters
+     * @param  array<string, mixed>  $filters
      */
     private function candidateQuery(array $filters): Builder
     {
@@ -282,22 +281,22 @@ class AiGraderCanvasPublisher
         $rubricPercentage = $this->rubricPercentageFor($item, $score, $pointsPossible);
         $rubricFeedback = $this->rubricFeedbackFor($item) ?? [];
         $lines = [
-            trans('ai-grader.rubric.comment.final_score', [], $locale) . ': ' . $this->number($score) . ' / ' . $this->number($pointsPossible),
+            trans('ai-grader.rubric.comment.final_score', [], $locale).': '.$this->number($score).' / '.$this->number($pointsPossible),
         ];
 
         if ($rubricPercentage !== null) {
-            $lines[] = trans('ai-grader.rubric.comment.rubric_result', [], $locale) . ': ' . $this->number($rubricPercentage) . '% / 100%';
+            $lines[] = trans('ai-grader.rubric.comment.rubric_result', [], $locale).': '.$this->number($rubricPercentage).'% / 100%';
         }
 
         if ($generalFeedback !== '') {
             $lines[] = '';
-            $lines[] = trans('ai-grader.rubric.comment.general_feedback', [], $locale) . ':';
+            $lines[] = trans('ai-grader.rubric.comment.general_feedback', [], $locale).':';
             $lines[] = $generalFeedback;
         }
 
         if ($rubricFeedback !== []) {
             $lines[] = '';
-            $lines[] = trans('ai-grader.rubric.comment.criteria_analysis', [], $locale) . ':';
+            $lines[] = trans('ai-grader.rubric.comment.criteria_analysis', [], $locale).':';
 
             foreach ($rubricFeedback as $criterion) {
                 if (! is_array($criterion)) {
@@ -308,18 +307,18 @@ class AiGraderCanvasPublisher
                 $percentage = $this->numericOrNull($criterion['percentage'] ?? null);
                 $maxPercentage = $this->numericOrNull($criterion['max_percentage'] ?? null);
                 $criterionFeedback = trim((string) ($criterion['feedback'] ?? ''));
-                $line = '- ' . $label;
+                $line = '- '.$label;
 
                 if ($percentage !== null) {
-                    $line .= ': ' . $this->number($percentage) . '%';
+                    $line .= ': '.$this->number($percentage).'%';
                 }
 
                 if ($maxPercentage !== null) {
-                    $line .= ' (' . trans('ai-grader.rubric.comment.of_weight', ['value' => $this->number($maxPercentage)], $locale) . ')';
+                    $line .= ' ('.trans('ai-grader.rubric.comment.of_weight', ['value' => $this->number($maxPercentage)], $locale).')';
                 }
 
                 if ($criterionFeedback !== '') {
-                    $line .= ' - ' . $criterionFeedback;
+                    $line .= ' - '.$criterionFeedback;
                 }
 
                 $lines[] = $line;
@@ -350,8 +349,8 @@ class AiGraderCanvasPublisher
     }
 
     /**
-     * @param array<string, mixed> $payload
-     * @param array<string, mixed> $responseBody
+     * @param  array<string, mixed>  $payload
+     * @param  array<string, mixed>  $responseBody
      */
     private function logPublication(
         AiGraderCorrectionItem $item,
@@ -397,7 +396,7 @@ class AiGraderCanvasPublisher
             }
         }
 
-        return mb_substr('[HTTP ' . $response->status() . '] ' . ($message ?: $response->body()), 0, 500);
+        return mb_substr('[HTTP '.$response->status().'] '.($message ?: $response->body()), 0, 500);
     }
 
     private function exceptionMessage(Throwable $exception): string

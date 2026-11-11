@@ -63,7 +63,7 @@ class AiGraderRunPipelineCommand extends Command
     }
 
     /**
-     * @param array<string, mixed> $summary
+     * @param  array<string, mixed>  $summary
      */
     private function renderSummary(array $summary): void
     {

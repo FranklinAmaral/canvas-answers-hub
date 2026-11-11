@@ -14,11 +14,17 @@ class AiGraderTeacherAction extends Model
     public const UPDATED_AT = null;
 
     public const ACTION_VIEWED = 'viewed';
+
     public const ACTION_APPROVED = 'approved';
+
     public const ACTION_ADJUSTED_SCORE = 'adjusted_score';
+
     public const ACTION_ADJUSTED_FEEDBACK = 'adjusted_feedback';
+
     public const ACTION_PUBLISHED = 'published';
+
     public const ACTION_REPUBLISHED = 'republished';
+
     public const ACTION_REJECTED = 'rejected';
 
     protected $fillable = [

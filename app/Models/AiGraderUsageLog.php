@@ -14,9 +14,13 @@ class AiGraderUsageLog extends Model
     public const UPDATED_AT = null;
 
     public const TYPE_CORRECTION_RESERVED = 'correction_reserved';
+
     public const TYPE_CORRECTION_CONSUMED = 'correction_consumed';
+
     public const TYPE_CORRECTION_RELEASED = 'correction_released';
+
     public const TYPE_AI_REQUEST = 'ai_request';
+
     public const TYPE_AI_VALIDATION_REQUEST = 'ai_validation_request';
 
     protected $fillable = [

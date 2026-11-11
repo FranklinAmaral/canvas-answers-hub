@@ -16,8 +16,8 @@ use Illuminate\Console\Command;
 function providerPolicyOrganization(string $suffix): Organization
 {
     return Organization::query()->create([
-        'name' => 'Provider Policy ' . $suffix,
-        'slug' => 'provider-policy-' . $suffix . '-' . uniqid(),
+        'name' => 'Provider Policy '.$suffix,
+        'slug' => 'provider-policy-'.$suffix.'-'.uniqid(),
         'timezone' => 'America/Sao_Paulo',
         'is_active' => true,
     ]);
@@ -30,7 +30,7 @@ function providerPolicyEnvironment(Organization $organization): CanvasEnvironmen
     return CanvasEnvironment::query()->create([
         'organization_id' => $organization->id,
         'name' => 'Provider Policy Canvas',
-        'slug' => 'provider-policy-canvas-' . uniqid(),
+        'slug' => 'provider-policy-canvas-'.uniqid(),
         'environment_type' => 'test',
         'base_url' => 'https://canvas.test',
         'api_token' => 'secret-token',
@@ -61,7 +61,7 @@ function providerPolicyItem(Organization $organization, CanvasEnvironment $envir
         $blueprint = AiGraderBlueprintConfig::query()->create([
             'organization_id' => $organization->id,
             'canvas_environment_id' => $environment->id,
-            'blueprint_course_id' => 'provider-policy-' . uniqid(),
+            'blueprint_course_id' => 'provider-policy-'.uniqid(),
             'enabled' => true,
             'publication_mode' => AiGraderBlueprintConfig::PUBLICATION_TEACHER_APPROVAL,
             'trigger_mode' => AiGraderBlueprintConfig::TRIGGER_MANUAL,
@@ -76,13 +76,13 @@ function providerPolicyItem(Organization $organization, CanvasEnvironment $envir
         'organization_id' => $organization->id,
         'canvas_environment_id' => $environment->id,
         'ai_grader_blueprint_config_id' => $blueprint?->id,
-        'child_course_id' => 'child-' . $unique,
-        'canvas_quiz_id' => 'quiz-' . $unique,
-        'canvas_assignment_id' => 'assignment-' . $unique,
-        'canvas_quiz_submission_id' => 'submission-' . $unique,
-        'canvas_user_id' => 'user-' . $unique,
+        'child_course_id' => 'child-'.$unique,
+        'canvas_quiz_id' => 'quiz-'.$unique,
+        'canvas_assignment_id' => 'assignment-'.$unique,
+        'canvas_quiz_submission_id' => 'submission-'.$unique,
+        'canvas_user_id' => 'user-'.$unique,
         'attempt' => 1,
-        'canvas_question_id' => 'question-' . $unique,
+        'canvas_question_id' => 'question-'.$unique,
         'canvas_points_possible' => 10,
         'answer_text' => 'Resposta válida.',
         'ai_grading_instructions_snapshot' => 'Avalie a resposta.',

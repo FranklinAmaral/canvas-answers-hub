@@ -1,6 +1,8 @@
 *.log
 .DS_Store
 .env
+.env.*
+!.env.example
 .env.backup
 .env.production
 .phpactor.json
@@ -13,6 +15,8 @@
 /.zed
 /auth.json
 /node_modules
+/.npm-cache
+/.validation
 /public/build
 /public/hot
 /public/storage

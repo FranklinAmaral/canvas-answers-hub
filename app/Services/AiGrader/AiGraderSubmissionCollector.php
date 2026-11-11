@@ -5,12 +5,10 @@ declare(strict_types=1);
 namespace App\Services\AiGrader;
 
 use App\Models\AiGraderBatch;
-use App\Models\AiGraderBlueprintConfig;
 use App\Models\AiGraderClientSetting;
 use App\Models\AiGraderCorrectionItem;
 use App\Models\AiGraderQuestionConfig;
 use App\Models\AiGraderQuizConfig;
-use App\Models\CanvasEnvironment;
 use App\Services\Canvas\CanvasApiClient;
 use App\Services\Canvas\Quizzes\CanvasQuizzesService;
 use Illuminate\Database\Eloquent\Builder;
@@ -22,11 +20,10 @@ class AiGraderSubmissionCollector
     public function __construct(
         private readonly AiGraderQuotaService $quotaService,
         private readonly AiGraderHtmlTextExtractor $htmlTextExtractor,
-    ) {
-    }
+    ) {}
 
     /**
-     * @param array<string, mixed> $filters
+     * @param  array<string, mixed>  $filters
      * @return array<string, mixed>
      */
     public function collect(array $filters = []): array
@@ -50,7 +47,7 @@ class AiGraderSubmissionCollector
     }
 
     /**
-     * @param array<string, mixed> $filters
+     * @param  array<string, mixed>  $filters
      * @return Builder<AiGraderQuizConfig>
      */
     private function eligibleQuizConfigs(array $filters): Builder
@@ -88,8 +85,8 @@ class AiGraderSubmissionCollector
     }
 
     /**
-     * @param array<string, mixed> $filters
-     * @param array<string, mixed> $summary
+     * @param  array<string, mixed>  $filters
+     * @param  array<string, mixed>  $summary
      */
     private function collectQuiz(AiGraderQuizConfig $quizConfig, array $filters, array &$summary, bool $dryRun, ?int $limit): void
     {
@@ -112,7 +109,7 @@ class AiGraderSubmissionCollector
             $childQuiz = $this->resolveChildQuiz($quizzesService, $quizConfig, $childCourseId, $filters);
         } catch (Throwable $exception) {
             $summary['skipped_configuration']++;
-            $summary['errors'][] = "quiz_config_id={$quizConfig->id}: " . $exception->getMessage();
+            $summary['errors'][] = "quiz_config_id={$quizConfig->id}: ".$exception->getMessage();
 
             return;
         }
@@ -139,7 +136,7 @@ class AiGraderSubmissionCollector
             $questionMapping = $this->buildQuestionMapping($quizConfig, $childQuestions, $summary);
         } catch (Throwable $exception) {
             $summary['skipped_configuration']++;
-            $summary['errors'][] = "quiz_config_id={$quizConfig->id}: child questions could not be loaded. " . $exception->getMessage();
+            $summary['errors'][] = "quiz_config_id={$quizConfig->id}: child questions could not be loaded. ".$exception->getMessage();
 
             return;
         }
@@ -208,14 +205,14 @@ class AiGraderSubmissionCollector
 
             $this->finishBatch($batch, $summary, false, $batchBaseline);
         } catch (Throwable $exception) {
-            $summary['errors'][] = "quiz_config_id={$quizConfig->id}: " . $exception->getMessage();
+            $summary['errors'][] = "quiz_config_id={$quizConfig->id}: ".$exception->getMessage();
             $this->finishBatch($batch, $summary, true, $batchBaseline);
         }
     }
 
     /**
-     * @param Collection<int, array<string, mixed>> $childQuestions
-     * @param array<string, mixed> $summary
+     * @param  Collection<int, array<string, mixed>>  $childQuestions
+     * @param  array<string, mixed>  $summary
      * @return array<string, array{question_config: AiGraderQuestionConfig, child_question: array<string, mixed>, strategy: string}>
      */
     private function buildQuestionMapping(AiGraderQuizConfig $quizConfig, Collection $childQuestions, array &$summary): array
@@ -275,8 +272,8 @@ class AiGraderSubmissionCollector
     }
 
     /**
-     * @param Collection<int, array<string, mixed>> $childQuestions
-     * @param array<string, bool> $usedChildQuestionIds
+     * @param  Collection<int, array<string, mixed>>  $childQuestions
+     * @param  array<string, bool>  $usedChildQuestionIds
      * @return array{child_question: array<string, mixed>, strategy: string}|null
      */
     private function matchChildQuestion(AiGraderQuestionConfig $questionConfig, Collection $childQuestions, array $usedChildQuestionIds): ?array
@@ -337,7 +334,7 @@ class AiGraderSubmissionCollector
     }
 
     /**
-     * @param array<string, mixed> $filters
+     * @param  array<string, mixed>  $filters
      * @return array{quiz_id: string|null, assignment_id: string|null, resolution: string}
      */
     private function resolveChildQuiz(CanvasQuizzesService $quizzesService, AiGraderQuizConfig $quizConfig, string $childCourseId, array $filters): array
@@ -363,9 +360,9 @@ class AiGraderSubmissionCollector
     }
 
     /**
-     * @param array<string, mixed> $quizSubmission
-     * @param array<string, mixed> $assignmentSubmission
-     * @param array<string, mixed> $summary
+     * @param  array<string, mixed>  $quizSubmission
+     * @param  array<string, mixed>  $assignmentSubmission
+     * @param  array<string, mixed>  $summary
      */
     private function collectSubmissionAnswers(
         AiGraderQuizConfig $quizConfig,
@@ -473,7 +470,6 @@ class AiGraderSubmissionCollector
     }
 
     /**
-     * @param mixed $history
      * @return array{history: array<string, mixed>, strategy: string}
      */
     private function selectSubmissionHistory(mixed $history, int $attempt): array
@@ -521,7 +517,7 @@ class AiGraderSubmissionCollector
     }
 
     /**
-     * @param array<string, mixed> $quizSubmission
+     * @param  array<string, mixed>  $quizSubmission
      */
     private function existingCorrectionItem(
         AiGraderQuizConfig $quizConfig,
@@ -544,8 +540,8 @@ class AiGraderSubmissionCollector
     }
 
     /**
-     * @param array<string, mixed> $quizSubmission
-     * @param array<string, mixed> $assignmentSubmission
+     * @param  array<string, mixed>  $quizSubmission
+     * @param  array<string, mixed>  $assignmentSubmission
      * @return array<string, mixed>
      */
     private function correctionItemPayload(
@@ -615,7 +611,7 @@ class AiGraderSubmissionCollector
     }
 
     /**
-     * @param array<string, mixed> $submission
+     * @param  array<string, mixed>  $submission
      */
     private function isEligibleSubmission(array $submission): bool
     {
@@ -627,7 +623,7 @@ class AiGraderSubmissionCollector
     }
 
     /**
-     * @param array<string, mixed> $summary
+     * @param  array<string, mixed>  $summary
      */
     private function incrementStatusSummary(array &$summary, string $status): void
     {
@@ -641,7 +637,7 @@ class AiGraderSubmissionCollector
     }
 
     /**
-     * @param array<string, mixed> $payload
+     * @param  array<string, mixed>  $payload
      * @return array<string, mixed>
      */
     private function itemSummary(?AiGraderCorrectionItem $item, array $payload, bool $quotaReserved): array
@@ -660,7 +656,7 @@ class AiGraderSubmissionCollector
     }
 
     /**
-     * @param array<string, mixed> $summary
+     * @param  array<string, mixed>  $summary
      */
     private function limitReached(array $summary, ?int $limit): bool
     {
@@ -677,10 +673,10 @@ class AiGraderSubmissionCollector
     }
 
     /**
-     * @param array<string, mixed> $summary
+     * @param  array<string, mixed>  $summary
      */
     /**
-     * @param array<string, int> $baseline
+     * @param  array<string, int>  $baseline
      */
     private function finishBatch(?AiGraderBatch $batch, array $summary, bool $hasError, array $baseline): void
     {
@@ -710,7 +706,7 @@ class AiGraderSubmissionCollector
     }
 
     /**
-     * @param array<string, mixed> $summary
+     * @param  array<string, mixed>  $summary
      * @return array<string, int>
      */
     private function batchCounters(array $summary): array
@@ -738,7 +734,7 @@ class AiGraderSubmissionCollector
     }
 
     /**
-     * @param array<string, mixed> $question
+     * @param  array<string, mixed>  $question
      */
     private function canvasQuestionId(array $question): ?string
     {
@@ -758,7 +754,7 @@ class AiGraderSubmissionCollector
     }
 
     /**
-     * @param array<string, mixed> $childQuestion
+     * @param  array<string, mixed>  $childQuestion
      */
     private function pointsPossible(array $childQuestion, AiGraderQuestionConfig $questionConfig): mixed
     {
@@ -770,7 +766,7 @@ class AiGraderSubmissionCollector
     }
 
     /**
-     * @param array<string, mixed> $summary
+     * @param  array<string, mixed>  $summary
      */
     private function persistChildCourseMapping(
         AiGraderQuizConfig $quizConfig,
@@ -815,7 +811,7 @@ class AiGraderSubmissionCollector
     }
 
     /**
-     * @param array<string, mixed> $filters
+     * @param  array<string, mixed>  $filters
      * @return array<string, mixed>
      */
     private function emptySummary(array $filters): array
@@ -846,7 +842,7 @@ class AiGraderSubmissionCollector
     }
 
     /**
-     * @param array<string, mixed> $filters
+     * @param  array<string, mixed>  $filters
      * @return array<string, mixed>
      */
     private function serializableFilters(array $filters): array

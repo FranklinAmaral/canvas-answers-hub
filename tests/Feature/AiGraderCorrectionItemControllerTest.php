@@ -14,7 +14,7 @@ function aiGraderCorrectionItemsOrganization(array $overrides = []): Organizatio
 {
     return Organization::query()->create(array_merge([
         'name' => 'Correction Org',
-        'slug' => 'correction-org-' . uniqid(),
+        'slug' => 'correction-org-'.uniqid(),
         'timezone' => 'America/Sao_Paulo',
         'is_active' => true,
     ], $overrides));
@@ -27,7 +27,7 @@ function aiGraderCorrectionItemsEnvironment(Organization $organization, array $o
     return CanvasEnvironment::query()->create(array_merge([
         'organization_id' => $organization->id,
         'name' => 'Correction Canvas',
-        'slug' => 'correction-canvas-' . uniqid(),
+        'slug' => 'correction-canvas-'.uniqid(),
         'environment_type' => 'test',
         'base_url' => 'https://canvas.test',
         'api_token' => 'secret-token',
@@ -201,7 +201,7 @@ it('shows correction item main data', function (): void {
     $this->actingAs($user)
         ->get(route('ai-grader.correction-items.show', $fixture['item']))
         ->assertOk()
-        ->assertSee('Item de correção #' . $fixture['item']->id)
+        ->assertSee('Item de correção #'.$fixture['item']->id)
         ->assertSee('Maria Student')
         ->assertSee('Child Essay')
         ->assertSee('44')

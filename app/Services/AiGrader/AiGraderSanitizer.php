@@ -9,7 +9,7 @@ class AiGraderSanitizer
     private const MASK = '[hidden]';
 
     /**
-     * @param array<string|int, mixed> $payload
+     * @param  array<string|int, mixed>  $payload
      * @return array<string|int, mixed>
      */
     public function sanitizeArray(array $payload): array
@@ -45,8 +45,8 @@ class AiGraderSanitizer
 
     public function sanitizeString(string $value): string
     {
-        $value = preg_replace('/Bearer\s+[A-Za-z0-9\-_\.=]+/i', 'Bearer ' . self::MASK, $value) ?? $value;
-        $value = preg_replace('/([?&](?:access_token|token|api_key|signature|sig|validation_token)=)[^&\s]+/i', '$1' . self::MASK, $value) ?? $value;
+        $value = preg_replace('/Bearer\s+[A-Za-z0-9\-_\.=]+/i', 'Bearer '.self::MASK, $value) ?? $value;
+        $value = preg_replace('/([?&](?:access_token|token|api_key|signature|sig|validation_token)=)[^&\s]+/i', '$1'.self::MASK, $value) ?? $value;
 
         return $value;
     }

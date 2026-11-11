@@ -26,8 +26,7 @@ class AiGraderBlueprintConfigController extends Controller
     public function __construct(
         private readonly AiGraderCanvasSyncService $syncService,
         private readonly AiGraderConfigurationStatusService $statusService,
-    ) {
-    }
+    ) {}
 
     public function index(Request $request): View
     {
@@ -53,7 +52,7 @@ class AiGraderBlueprintConfigController extends Controller
 
     public function create(): View
     {
-        return view('ai-grader.blueprints.create', $this->formData(new AiGraderBlueprintConfig()));
+        return view('ai-grader.blueprints.create', $this->formData(new AiGraderBlueprintConfig));
     }
 
     public function store(UpsertAiGraderBlueprintConfigRequest $request): RedirectResponse
@@ -103,7 +102,7 @@ class AiGraderBlueprintConfigController extends Controller
         try {
             $result = $this->syncService->syncQuizzes($blueprintConfig);
         } catch (Throwable $exception) {
-            return back()->with('error', 'Falha ao sincronizar quizzes do Canvas: ' . $exception->getMessage());
+            return back()->with('error', 'Falha ao sincronizar quizzes do Canvas: '.$exception->getMessage());
         }
 
         return back()->with(
@@ -148,7 +147,7 @@ class AiGraderBlueprintConfigController extends Controller
         try {
             $result = $this->syncService->syncQuestions($quizConfig);
         } catch (Throwable $exception) {
-            return back()->with('error', 'Falha ao sincronizar questões do Canvas: ' . $exception->getMessage());
+            return back()->with('error', 'Falha ao sincronizar questões do Canvas: '.$exception->getMessage());
         }
 
         return back()->with(
@@ -215,7 +214,7 @@ class AiGraderBlueprintConfigController extends Controller
                 ->orderBy('name')
                 ->get(),
             'publicationModes' => collect(AiGraderBlueprintConfig::publicationModes())
-                ->mapWithKeys(fn (string $mode): array => [$mode => __('ai_grader.publication_modes.' . $mode)])
+                ->mapWithKeys(fn (string $mode): array => [$mode => __('ai_grader.publication_modes.'.$mode)])
                 ->all(),
             'triggerModes' => [
                 AiGraderBlueprintConfig::TRIGGER_AFTER_SUBMISSION => 'after_submission',

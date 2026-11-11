@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-use App\Models\AiGraderBatch;
+use App\Jobs\AiGrader\AiGraderRunPipelineJob;
 use App\Models\AiGraderAiProvider;
+use App\Models\AiGraderBatch;
 use App\Models\AiGraderBlueprintConfig;
 use App\Models\AiGraderClientSetting;
 use App\Models\AiGraderCorrectionItem;
 use App\Models\AiGraderQuestionConfig;
 use App\Models\AiGraderQuizConfig;
-use App\Jobs\AiGrader\AiGraderRunPipelineJob;
 use App\Models\CanvasEnvironment;
 use App\Models\Organization;
 use App\Services\AiGrader\AiGraderSubmissionCollector;
@@ -21,7 +21,7 @@ function aiGraderCollectorOrganization(int $quotaTotal = 50): Organization
 {
     $organization = Organization::query()->create([
         'name' => 'Collector Org',
-        'slug' => 'collector-org-' . uniqid(),
+        'slug' => 'collector-org-'.uniqid(),
         'timezone' => 'America/Sao_Paulo',
         'is_active' => true,
     ]);
@@ -46,7 +46,7 @@ function aiGraderCollectorEnvironment(Organization $organization): CanvasEnviron
     return CanvasEnvironment::query()->create([
         'organization_id' => $organization->id,
         'name' => 'Collector Canvas',
-        'slug' => 'collector-canvas-' . uniqid(),
+        'slug' => 'collector-canvas-'.uniqid(),
         'environment_type' => 'test',
         'base_url' => 'https://canvas.test',
         'api_token' => 'secret-token',
@@ -547,7 +547,7 @@ it('scheduler dispatches pipeline after collector persisted child course mapping
 
     Bus::fake();
 
-    $this->artisan('ai-grader:dispatch-scheduled-pipelines --blueprint-config-id=' . $quizConfig->ai_grader_blueprint_config_id)
+    $this->artisan('ai-grader:dispatch-scheduled-pipelines --blueprint-config-id='.$quizConfig->ai_grader_blueprint_config_id)
         ->assertExitCode(0);
 
     Bus::assertDispatched(AiGraderRunPipelineJob::class, fn (AiGraderRunPipelineJob $job): bool => $job->blueprintConfigId === $quizConfig->ai_grader_blueprint_config_id

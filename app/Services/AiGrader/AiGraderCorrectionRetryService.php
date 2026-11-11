@@ -12,10 +12,11 @@ use Illuminate\Support\Facades\DB;
 class AiGraderCorrectionRetryService
 {
     public const RETRY_AI = 'ai';
+
     public const RETRY_PUBLICATION = 'publication';
 
     /**
-     * @param array<string, mixed> $metadata
+     * @param  array<string, mixed>  $metadata
      * @return array{queued: bool, retry_type: string|null}
      */
     public function retryAndDispatch(AiGraderCorrectionItem $item, array $metadata = []): array
@@ -38,8 +39,8 @@ class AiGraderCorrectionRetryService
     }
 
     /**
-     * @param iterable<int, AiGraderCorrectionItem> $items
-     * @param array<string, mixed> $metadata
+     * @param  iterable<int, AiGraderCorrectionItem>  $items
+     * @param  array<string, mixed>  $metadata
      * @return array{queued: int, ai: int, publication: int, ignored: int}
      */
     public function retryManyAndDispatch(iterable $items, array $metadata = []): array

@@ -21,8 +21,7 @@ class AiGraderClientSettingsController extends Controller
 {
     public function __construct(
         private readonly AiGraderQuotaService $quotaService,
-    ) {
-    }
+    ) {}
 
     public function index(Request $request): View
     {
@@ -219,5 +218,4 @@ class AiGraderClientSettingsController extends Controller
             AiGraderClientSetting::STATUS_QUOTA_EXCEEDED => 'quota_exceeded',
         ];
     }
-
 }

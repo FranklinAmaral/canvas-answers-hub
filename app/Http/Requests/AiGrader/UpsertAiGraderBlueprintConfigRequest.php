@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\Http\Requests\AiGrader;
 
+use App\Models\AiGraderAiProvider;
 use App\Models\AiGraderBlueprintConfig;
 use App\Models\AiGraderClientSetting;
-use App\Models\AiGraderAiProvider;
 use App\Models\CanvasEnvironment;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
@@ -36,7 +36,7 @@ class UpsertAiGraderBlueprintConfigRequest extends FormRequest
                 AiGraderBlueprintConfig::TRIGGER_AFTER_DATE,
                 AiGraderBlueprintConfig::TRIGGER_MANUAL,
             ])],
-            'scheduled_at' => ['nullable', 'required_if:trigger_mode,' . AiGraderBlueprintConfig::TRIGGER_AFTER_DATE, 'date'],
+            'scheduled_at' => ['nullable', 'required_if:trigger_mode,'.AiGraderBlueprintConfig::TRIGGER_AFTER_DATE, 'date'],
             'default_feedback_language' => ['required', 'string', 'max:20'],
             'ai_provider_id' => ['nullable', 'integer', 'exists:ai_grader_ai_providers,id'],
             'teacher_can_adjust_score' => ['nullable', 'boolean'],

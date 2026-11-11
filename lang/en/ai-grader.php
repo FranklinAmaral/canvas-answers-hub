@@ -1,6 +1,12 @@
 <?php
 
 return [
+    'mock_provider' => [
+        'feedback' => 'Simulated/mock grading: answer with :length characters. Mock criterion applied: :percentage% of the maximum score.',
+        'rubric_feedback' => 'Simulated/mock rubric grading: answer with :length characters. Overall result estimated at :percentage% of the maximum score.',
+        'criterion_feedback' => 'Simulated analysis by the mock provider for this criterion.',
+        'criterion' => 'Criterion',
+    ],
     'common' => [
         'all' => 'All',
         'back' => 'Back',

@@ -13,11 +13,15 @@ class AiGraderBlueprintConfig extends Model
     protected $table = 'ai_grader_blueprint_configs';
 
     public const PUBLICATION_AUTO_PUBLISH = 'auto_publish';
+
     public const PUBLICATION_TEACHER_APPROVAL = 'teacher_approval';
+
     public const PUBLICATION_AUTO_PUBLISH_WITH_REVIEW_FLAGS = 'auto_publish_with_review_flags';
 
     public const TRIGGER_AFTER_SUBMISSION = 'after_submission';
+
     public const TRIGGER_AFTER_DATE = 'after_date';
+
     public const TRIGGER_MANUAL = 'manual';
 
     protected $fillable = [

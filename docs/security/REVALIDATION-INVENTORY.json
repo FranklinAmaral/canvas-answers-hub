@@ -1,0 +1,1451 @@
+{
+    "review_date":  "2026-11-11",
+    "reference_commit":  "40a7e312791b0c87d2910017feb4c2a12fc63a38",
+    "uncommitted_changes":  true,
+    "source_fingerprint_sha256":  "7d554742975ab440218eada5b35cad6441bc29592def7c022db5fc013d084d61",
+    "fingerprint_format":  "Sorted tracked and non-ignored untracked existing paths except docs/: UTF-8 path + NUL + lowercase content SHA256 + LF; derived build/vendor/node_modules excluded by Git ignore",
+    "source_files":  [
+                         {
+                             "path":  ".editorconfig",
+                             "sha256":  "f78cc5a2ef8ba61ad956d0f5db453748a981270f6a1b9f4a5a00df8690e7946d"
+                         },
+                         {
+                             "path":  ".env.example",
+                             "sha256":  "cee58a0ecc9e8b28c52c79d5169cb2cdff4161aaf4e2bf8f605217cbf95a2135"
+                         },
+                         {
+                             "path":  ".gitattributes",
+                             "sha256":  "a40eb27ee0b545ca5b5542daaf99fec51f84f23b3766a6353864ef2a115bc51c"
+                         },
+                         {
+                             "path":  ".github/workflows/checks.yml",
+                             "sha256":  "a95b523508044fb4b2f23da3a2d25d2d3c5381ab26d5f29664d7c7e753ea26be"
+                         },
+                         {
+                             "path":  ".gitignore",
+                             "sha256":  "549cd49d5022f3966cbddd0220f59a0cd1305e3205eecf63da2f4f0eaddebf9b"
+                         },
+                         {
+                             "path":  "AGENTS.md",
+                             "sha256":  "eb37b85ed7cce191091511711aa3ad0611f5ddebb381ad3187f7df27b7fc25f9"
+                         },
+                         {
+                             "path":  "app/Console/Commands/AiGraderCollectSubmissionsCommand.php",
+                             "sha256":  "99f759ad4a335e00989c2caa7a617216c7b4d06816e6b0d84e81886e1babda89"
+                         },
+                         {
+                             "path":  "app/Console/Commands/AiGraderDispatchScheduledPipelinesCommand.php",
+                             "sha256":  "f13801b88e8979ff6b4e386bb265f2d1daa59b1312082e5dab9de882df237670"
+                         },
+                         {
+                             "path":  "app/Console/Commands/AiGraderProcessPendingCommand.php",
+                             "sha256":  "7794f385dd7fd58ff4448f1964a164624fdd125a9d836e5f32ab291497e33ef5"
+                         },
+                         {
+                             "path":  "app/Console/Commands/AiGraderPublishCanvasCommand.php",
+                             "sha256":  "e9e07285b64a12bfa879ed9056d9c44c54166593ea76044b0ee20963925dcf04"
+                         },
+                         {
+                             "path":  "app/Console/Commands/AiGraderRunPipelineCommand.php",
+                             "sha256":  "082237ab8cc14ed9cb70de143c4049ca9b8288724c830ec0b4501366dcc2b6d6"
+                         },
+                         {
+                             "path":  "app/Http/Controllers/AiGrader/AiGraderAiProviderController.php",
+                             "sha256":  "6b073e8d4cc10fd010caaa4305f8f358e4836f8a99249e98979b8bfbc1b21a67"
+                         },
+                         {
+                             "path":  "app/Http/Controllers/AiGrader/AiGraderBlueprintConfigController.php",
+                             "sha256":  "3a8db24030cd6d88017c03b9169f709b7f63c6cf723399c6e59798f7793bf622"
+                         },
+                         {
+                             "path":  "app/Http/Controllers/AiGrader/AiGraderClientSettingsController.php",
+                             "sha256":  "7506e8971dc68db49bf8b8093641e60b889f1da2720870cac75bf784bc3997aa"
+                         },
+                         {
+                             "path":  "app/Http/Controllers/AiGrader/AiGraderCorrectionItemController.php",
+                             "sha256":  "38a51ee2b6dcb78fd19f88fb770c0c6ef5261dc8a409ecdfaad1943d02f60764"
+                         },
+                         {
+                             "path":  "app/Http/Controllers/AiGrader/AiGraderLtiInstallationController.php",
+                             "sha256":  "5f0d4a50fa05f61e8996b84a38018ea1438efbbea957bd380bd8742ac537d08a"
+                         },
+                         {
+                             "path":  "app/Http/Controllers/Auth/AuthenticatedSessionController.php",
+                             "sha256":  "9f9d274e012b8777b8eda9e84d557ccdfe471581fc69367fa79738518fabcc83"
+                         },
+                         {
+                             "path":  "app/Http/Controllers/Auth/NewPasswordController.php",
+                             "sha256":  "64300ff2989baeb1924c6b0d698cdcd189796ed45d5b14135a03c4607e4007af"
+                         },
+                         {
+                             "path":  "app/Http/Controllers/Auth/PasswordController.php",
+                             "sha256":  "81f68e0aa74f66038082364499dde9a1b1d93ca961448bd8b46bc77aa17117fd"
+                         },
+                         {
+                             "path":  "app/Http/Controllers/Auth/PasswordResetLinkController.php",
+                             "sha256":  "82a07fee8b04223bf3587e5d3458de77275335104efa304aaf9e4a2dad1dea8c"
+                         },
+                         {
+                             "path":  "app/Http/Controllers/CanvasEnvironmentController.php",
+                             "sha256":  "3f3cc44672d67c946037e24f22efeaea4b5976fe19207cec96e05f86c737d6f3"
+                         },
+                         {
+                             "path":  "app/Http/Controllers/Controller.php",
+                             "sha256":  "25d1c1ef8e6cc8a376553faacfba2b07d9dfaee9bdbb84f14f77517580e9deb1"
+                         },
+                         {
+                             "path":  "app/Http/Controllers/LocaleController.php",
+                             "sha256":  "bd030e2d781939567521545e6cdc8d2a15c4abdd7ccfc0b9bc62df92df968911"
+                         },
+                         {
+                             "path":  "app/Http/Controllers/Lti/AiGraderLtiController.php",
+                             "sha256":  "e4503c297e01691f8a690be29756330ba7b04c96c7100772bca332f92b8c20b0"
+                         },
+                         {
+                             "path":  "app/Http/Controllers/OrganizationController.php",
+                             "sha256":  "f4adeff818f62e15aef1937acfc7fec3df77de29c8de2bdc404c39a1405019ab"
+                         },
+                         {
+                             "path":  "app/Http/Controllers/ProfileController.php",
+                             "sha256":  "de52036da107475ec45d3e83f96a0ab28c091cea548ff58cd926f34a8f216bea"
+                         },
+                         {
+                             "path":  "app/Http/Middleware/SetLocale.php",
+                             "sha256":  "754030091ef8fdb4b0bb6e2d2f75f9d05f11b75b9e9cf97323db300bec006df9"
+                         },
+                         {
+                             "path":  "app/Http/Requests/AiGrader/UpdateAiGraderClientSettingRequest.php",
+                             "sha256":  "604f6b33b401c96a3471ae2168d8c9d3e36e96288cf5d3bb54a852de35493efe"
+                         },
+                         {
+                             "path":  "app/Http/Requests/AiGrader/UpdateAiGraderQuestionConfigRequest.php",
+                             "sha256":  "25bb5acc7a15a4ac8f84045733de0d9fa4a79dd5b746a7a2b6128b0784d19803"
+                         },
+                         {
+                             "path":  "app/Http/Requests/AiGrader/UpdateAiGraderQuizConfigRequest.php",
+                             "sha256":  "d11275c432a955e1bc43fb8528479141a7a17e1cdf2376a134bb95da8896cd67"
+                         },
+                         {
+                             "path":  "app/Http/Requests/AiGrader/UpsertAiGraderAiProviderRequest.php",
+                             "sha256":  "8b59a93078cfee8c524f15d797fe0e034256f7459d68c15c35a426ad2f4943eb"
+                         },
+                         {
+                             "path":  "app/Http/Requests/AiGrader/UpsertAiGraderBlueprintConfigRequest.php",
+                             "sha256":  "d7598f37c84f2ee0465a96903e469bc798848668e4086802b6949a666c73e81a"
+                         },
+                         {
+                             "path":  "app/Http/Requests/Auth/LoginRequest.php",
+                             "sha256":  "d64740bf9748fcd0b33a14d72aa42ec2868f2579746b3e1701426006c7eaa6a3"
+                         },
+                         {
+                             "path":  "app/Http/Requests/ProfileUpdateRequest.php",
+                             "sha256":  "720b4e00a5f02025c8448fd8a3bac93eb0e55a64d5ff861581b6a00c26dfd871"
+                         },
+                         {
+                             "path":  "app/Jobs/AiGrader/AiGraderCollectSubmissionsJob.php",
+                             "sha256":  "38a7ee9a51ff11c96db08ed1fe53645e131f7f5f1bf188cc4db49423fb3c9cab"
+                         },
+                         {
+                             "path":  "app/Jobs/AiGrader/AiGraderProcessPendingCorrectionsJob.php",
+                             "sha256":  "0c6e0fd8bab7096b8b123719b45fbe1de5e57a9563ae962d478a3ca7e3d8ce68"
+                         },
+                         {
+                             "path":  "app/Jobs/AiGrader/AiGraderPublishCorrectedItemsJob.php",
+                             "sha256":  "1a26bb8782c02117a73e14175201640150ae517056060f750f5a840dab92a625"
+                         },
+                         {
+                             "path":  "app/Jobs/AiGrader/AiGraderRetryCorrectionItemJob.php",
+                             "sha256":  "7a3397245a14800bae59c802334a153207064e55ed9a3755d2021680c4a4ef35"
+                         },
+                         {
+                             "path":  "app/Jobs/AiGrader/AiGraderRunPipelineJob.php",
+                             "sha256":  "be01993a24560a2d70764e337625e4e5e117535a0506b554e163f688ca2fad1d"
+                         },
+                         {
+                             "path":  "app/Models/AiGraderAiProvider.php",
+                             "sha256":  "1bc32efee5fe7b9ac8171957e72a42d02a24ea19e59fb6a2b4a05fa6dd67ff25"
+                         },
+                         {
+                             "path":  "app/Models/AiGraderBatch.php",
+                             "sha256":  "c24a43288494f095288f2ac48c2c7650078f46353d49b20dc8cdc2f65352cd3d"
+                         },
+                         {
+                             "path":  "app/Models/AiGraderBlueprintConfig.php",
+                             "sha256":  "795dda05aa15e3006cc5c35a686367ee22e184ef04416039a225690f5b7a1546"
+                         },
+                         {
+                             "path":  "app/Models/AiGraderCanvasPublicationLog.php",
+                             "sha256":  "ff0473a5c92e68a969455d47fdd0ecf243cbe9c157b162c37ce99d51af197e64"
+                         },
+                         {
+                             "path":  "app/Models/AiGraderClientSetting.php",
+                             "sha256":  "ed9048edac777b6f9a848bdf2d7df81e371b185e182c99beb431df346551c9f1"
+                         },
+                         {
+                             "path":  "app/Models/AiGraderCorrectionItem.php",
+                             "sha256":  "b5325250c44d2f0485460df9ae34fed088673fb6c296cab7fa601747aea885fe"
+                         },
+                         {
+                             "path":  "app/Models/AiGraderQuestionConfig.php",
+                             "sha256":  "a40e69b1ad91bc37e0cf877d41573e0c4420b1d8aade84ff51ee86732323fab9"
+                         },
+                         {
+                             "path":  "app/Models/AiGraderQuizConfig.php",
+                             "sha256":  "29d61105d4e9b606011f559e9859836df896c04be17300ea6b54bf61753fa4b8"
+                         },
+                         {
+                             "path":  "app/Models/AiGraderTeacherAction.php",
+                             "sha256":  "36e2c558a73a443eedddbdb38e8d55add2bca090e9eadf1835a0b7cb1984d1aa"
+                         },
+                         {
+                             "path":  "app/Models/AiGraderUsageLog.php",
+                             "sha256":  "edbf9e0f266376d587d80074a6667fea4246cf54a3c4ff257f1ef4ce7afa182a"
+                         },
+                         {
+                             "path":  "app/Models/CanvasEnvironment.php",
+                             "sha256":  "eb8296998a62d25325dba64a98b29bd3044302e1342784c2778f61fa8740e761"
+                         },
+                         {
+                             "path":  "app/Models/Organization.php",
+                             "sha256":  "49267446016cdda1bf0047aa658208f55c0e0ac9b5a26cddebc58b8877c15852"
+                         },
+                         {
+                             "path":  "app/Models/User.php",
+                             "sha256":  "0fcf02f3ea80b3a13f3c697072a59604e7c0eefa6397a0fe1ebb2bfa3091ab56"
+                         },
+                         {
+                             "path":  "app/Providers/AppServiceProvider.php",
+                             "sha256":  "45afcdb8ad87570992d6c04d32c34a2b70051305d8aa5452df73c052c9f359be"
+                         },
+                         {
+                             "path":  "app/Services/AiGrader/AiGraderCanvasPublisher.php",
+                             "sha256":  "746484041f1404c03527398d61d9682b79c32e314daea11d478c5175cdd2bd2b"
+                         },
+                         {
+                             "path":  "app/Services/AiGrader/AiGraderCanvasSyncService.php",
+                             "sha256":  "c75e369b960da977ddaed24c90ddf6ef96d8bbf02fbbf46864734ce3aa76f139"
+                         },
+                         {
+                             "path":  "app/Services/AiGrader/AiGraderChildCourseResolver.php",
+                             "sha256":  "7e94bae59ea46d53e3ed2172a418aa089d9fa56f0129b2e0f425a3c6fd948805"
+                         },
+                         {
+                             "path":  "app/Services/AiGrader/AiGraderConfigurationStatusService.php",
+                             "sha256":  "15bf63f57b729bff1967a436546ecaf2a1e1725ccc0c395d28495a1c04339328"
+                         },
+                         {
+                             "path":  "app/Services/AiGrader/AiGraderCorrectionEvaluator.php",
+                             "sha256":  "7542a99f8ceba0a5ca3a3833c6647baa69c83f90c2f2a50503cbebc6a6c00595"
+                         },
+                         {
+                             "path":  "app/Services/AiGrader/AiGraderCorrectionRetryService.php",
+                             "sha256":  "93430d4d81d25c798cc5b869519cb612990726221972020875357dfb09e01838"
+                         },
+                         {
+                             "path":  "app/Services/AiGrader/AiGraderHtmlTextExtractor.php",
+                             "sha256":  "cb54466ca66c1c61e191ac94a4e8f19af7ba4728bca28776c0914bb39b7e06bc"
+                         },
+                         {
+                             "path":  "app/Services/AiGrader/AiGraderLtiConfigService.php",
+                             "sha256":  "f68cf0034d666362ef3182a0f74773fbbc9ed8a32733adedcf3bcb0e264431e8"
+                         },
+                         {
+                             "path":  "app/Services/AiGrader/AiGraderLtiSecurityException.php",
+                             "sha256":  "8c64a743399afc7e1d09929be085277985d2172cc9b626c92b30a61afe31e9aa"
+                         },
+                         {
+                             "path":  "app/Services/AiGrader/AiGraderLtiSecurityService.php",
+                             "sha256":  "9dbc1cb0844d6817a178c6d35f6355c019944163217964111e005da138ad1be9"
+                         },
+                         {
+                             "path":  "app/Services/AiGrader/AiGraderPendingProcessor.php",
+                             "sha256":  "0551bc8196cc6e27296212fb9d0fbdc03cf65284cb7368ccd3907a06621524b1"
+                         },
+                         {
+                             "path":  "app/Services/AiGrader/AiGraderPromptBuilder.php",
+                             "sha256":  "45ddbe49d7a632a6a644ec091f3e232183718668d2044d68993d38da49e3df49"
+                         },
+                         {
+                             "path":  "app/Services/AiGrader/AiGraderProviderResolver.php",
+                             "sha256":  "e4f4d8dd11adbbb805a194f275c624e4583fba1bcbb54495676c97d6aa56d34a"
+                         },
+                         {
+                             "path":  "app/Services/AiGrader/AiGraderQuotaService.php",
+                             "sha256":  "25cc8c2408654a4cca7d021a5f6fe3b3f292fd1540c99be2b7198d2d0d0ba18b"
+                         },
+                         {
+                             "path":  "app/Services/AiGrader/AiGraderSanitizer.php",
+                             "sha256":  "2c34f59b5760b6835a1d86f85ce27884d054e99d23c9a981a137c84a2c72dc6e"
+                         },
+                         {
+                             "path":  "app/Services/AiGrader/AiGraderScoreNormalizer.php",
+                             "sha256":  "b3b125d88a7b5a3d3f8e3bafb7eeb8669b4994cb43ebb3060b450760161621a8"
+                         },
+                         {
+                             "path":  "app/Services/AiGrader/AiGraderSubmissionCollector.php",
+                             "sha256":  "72a3b1934c56f67a62724dc4f4528d4e709e4c61a0a78726971d283d6a03ad57"
+                         },
+                         {
+                             "path":  "app/Services/AiGrader/AiGraderTeacherReviewService.php",
+                             "sha256":  "393766e666a5583df4dcccad4e3f3b99464a0dd85ea28e7ca28a7998f1a370ce"
+                         },
+                         {
+                             "path":  "app/Services/AiGrader/Contracts/AiGraderProviderInterface.php",
+                             "sha256":  "5889c4234d4c6f71898bee6994fd70918fde2dbb5ede2edff036c16ad5979310"
+                         },
+                         {
+                             "path":  "app/Services/AiGrader/Data/AiGraderPromptContext.php",
+                             "sha256":  "014867beaafe547d3c65abbf756ac3f49d77cfebe7e78cfdeca579d9d4da2f57"
+                         },
+                         {
+                             "path":  "app/Services/AiGrader/Data/AiGraderResult.php",
+                             "sha256":  "d96b89df8806109b0fb4cab17ed4549e4b2a7ca7207225a61a5fa7c55623581b"
+                         },
+                         {
+                             "path":  "app/Services/AiGrader/Providers/LmStudioAiGraderProvider.php",
+                             "sha256":  "3c48fc84aab634038c07a0bcc0ec75914767e478f56a1814d192efa7cb776032"
+                         },
+                         {
+                             "path":  "app/Services/AiGrader/Providers/MockAiGraderProvider.php",
+                             "sha256":  "e4b3118d5317f34672bdc8182a012fd00c7a552417f74e280e39c08adca824d0"
+                         },
+                         {
+                             "path":  "app/Services/Canvas/CanvasApiClient.php",
+                             "sha256":  "229ca596f792e7289b83054ff2e25112dc32cd05e57e4999462abd7ab9298052"
+                         },
+                         {
+                             "path":  "app/Services/Canvas/CanvasApiException.php",
+                             "sha256":  "250aed29f6f62fe40e7f93c5964f6305cd2d1cf70f96c6f42f5acd65571be555"
+                         },
+                         {
+                             "path":  "app/Services/Canvas/Quizzes/CanvasQuizzesService.php",
+                             "sha256":  "281db39a3e42e8da4b18dd77a5cd0e9035993b23bce4a9d5cfe9bfb8d36707e4"
+                         },
+                         {
+                             "path":  "app/Support/AiGraderLtiView.php",
+                             "sha256":  "2ca80fe8e08fc9c23fd1121bafcac2438f1c5675a3393f7189181fdf1116ac77"
+                         },
+                         {
+                             "path":  "artisan",
+                             "sha256":  "f91a517c0c5d3a904c3f390933964a5e08ec1fc68146882730daac4aca4ffcec"
+                         },
+                         {
+                             "path":  "bootstrap/app.php",
+                             "sha256":  "5b44cdebce636a138ddef45423234e040637df4e02f5169d887cf5b3db0c4e52"
+                         },
+                         {
+                             "path":  "bootstrap/cache/.gitignore",
+                             "sha256":  "240a3e0d37d2e86b614063f5347eb02d4f99ca6c254de6b82871ff8d95532a7d"
+                         },
+                         {
+                             "path":  "bootstrap/providers.php",
+                             "sha256":  "f720e185207a343d4c19fc99dbb317a4187efbcd7d38a303a695bbdd77ffb943"
+                         },
+                         {
+                             "path":  "composer.json",
+                             "sha256":  "55faf96b894d02c327b2fd29dee329376ed9e393fca0af35b0fdb4b36d543e94"
+                         },
+                         {
+                             "path":  "composer.lock",
+                             "sha256":  "6ab29afa9a993f97dc791e57d2b22310e3b3ede6371b67ea48646fa54a14901d"
+                         },
+                         {
+                             "path":  "config/app.php",
+                             "sha256":  "42100aaad0731cbdd06696ecf9d7e021de25831a997877deb3c2cb8e00702bb7"
+                         },
+                         {
+                             "path":  "config/auth.php",
+                             "sha256":  "c7e204e9785c9f596d66fb884b493f658f2327f157646bdb4088efd6b3a7773f"
+                         },
+                         {
+                             "path":  "config/cache.php",
+                             "sha256":  "c085212c4ea20d5a3bf4260270cf67f53a82c2ef9767a1ea33ababecc8806c24"
+                         },
+                         {
+                             "path":  "config/database.php",
+                             "sha256":  "b7cb4419344a21543feeb2026085f9ba6dedd6a12c9f0e468c505d2916ac00ea"
+                         },
+                         {
+                             "path":  "config/filesystems.php",
+                             "sha256":  "ba7060d7a23e490c3ce830656f6d24ad3ccf5b868e3293f2a12e411959dc5635"
+                         },
+                         {
+                             "path":  "config/graderai.php",
+                             "sha256":  "04e4a64a1bf04fcb5b1a53281292483ebb48b7ab1421c0f4b2a234a3ebbe4a91"
+                         },
+                         {
+                             "path":  "config/logging.php",
+                             "sha256":  "090ba1e94dbe165d5adadbdaaf6fe9caf02cc3c3ce827370fa448981309a720e"
+                         },
+                         {
+                             "path":  "config/mail.php",
+                             "sha256":  "e85fe047456edc3a9304213d18c279129e003813bbbbfc0d53720921badde139"
+                         },
+                         {
+                             "path":  "config/queue.php",
+                             "sha256":  "3a041d2e4abb943fa92ef5ae3ba57359a81712d17718f808cb57e4feba2b9af3"
+                         },
+                         {
+                             "path":  "config/services.php",
+                             "sha256":  "8258c4487eb1d73a97e569eb0e411e3f25368044812df4cba807860432be1d92"
+                         },
+                         {
+                             "path":  "config/session.php",
+                             "sha256":  "2673e89a29d5fc974852e2724448314c318341f5e138a466965a903cc72d770c"
+                         },
+                         {
+                             "path":  "database/.gitignore",
+                             "sha256":  "e758642d95e83e907e010b6e46b07b3f953c7cef11fe5ebefc2a77b9d7b4d5f7"
+                         },
+                         {
+                             "path":  "database/factories/UserFactory.php",
+                             "sha256":  "5a42d070651786ceb8ede58f5b122af724f24de9a1e64886e7191cfd9411e13f"
+                         },
+                         {
+                             "path":  "database/migrations/0001_01_01_000000_create_users_table.php",
+                             "sha256":  "936dc91ce9b264e94bd2e0c72a61d14500f53dc238561bd4ec209cd50a0205da"
+                         },
+                         {
+                             "path":  "database/migrations/0001_01_01_000001_create_cache_table.php",
+                             "sha256":  "fbb4665e5a977e71df4e74ec75b3c06ca4f17ad0de7138fe9786639189978e77"
+                         },
+                         {
+                             "path":  "database/migrations/0001_01_01_000002_create_jobs_table.php",
+                             "sha256":  "36e554462f6df7552dc371674f3ef13d13f15c3f58ca3b12a0fb578dd76b7658"
+                         },
+                         {
+                             "path":  "database/migrations/2026_04_20_200515_create_organizations_table.php",
+                             "sha256":  "573751223c41a8b74427f97bdc8857322144abca632c37cede213fb661035704"
+                         },
+                         {
+                             "path":  "database/migrations/2026_04_20_200607_create_canvas_environments_table.php",
+                             "sha256":  "a3a5789dfea91654672c327a0335043bca4c0403c1a3ee9f24fc0119dd68fb93"
+                         },
+                         {
+                             "path":  "database/migrations/2026_06_07_000001_create_ai_grader_tables.php",
+                             "sha256":  "ef88a3e2a1e24ec4b9192f77778651e78d2a65a499baaddbf4eca6646e81859a"
+                         },
+                         {
+                             "path":  "database/seeders/DatabaseSeeder.php",
+                             "sha256":  "48d9601eb2663041259a42eac81222d84b91fe67b11ec50bac2656592916d83d"
+                         },
+                         {
+                             "path":  "deploy.sh",
+                             "sha256":  "e2a8b123938e60b3fedb0914a62cc8276f148a0644917669853ffc0250d0f377"
+                         },
+                         {
+                             "path":  "lang/en/ai_grader.php",
+                             "sha256":  "846d0d33e3c9e0505306f50393b623804745a4dd99008e76e6df9f9f0776a97b"
+                         },
+                         {
+                             "path":  "lang/en/ai-grader.php",
+                             "sha256":  "4dc6d88801d01c25bb36ca567e2be3a2a3ae982c5acb78a56b6fe377dc1945e9"
+                         },
+                         {
+                             "path":  "lang/en/auth.php",
+                             "sha256":  "029823d4e0f2a8cce3b9ccb90e3eacdb4c9f28947ba59a5525bd39c14c869716"
+                         },
+                         {
+                             "path":  "lang/en/pagination.php",
+                             "sha256":  "5c9bed6d2c965666d0c8b9f17f93f87cbfc7a240ead19b3b061764e8238e219f"
+                         },
+                         {
+                             "path":  "lang/en/passwords.php",
+                             "sha256":  "1033d4d34a49e17610dee7a13e14d13525472a96396a96c07d3870f337e10498"
+                         },
+                         {
+                             "path":  "lang/en/translation.php",
+                             "sha256":  "139c3f9b986a9a1e43ca1a4fd6a1c27b1cef0c3c866d2f2d4fccbc11ae32151f"
+                         },
+                         {
+                             "path":  "lang/en/validation.php",
+                             "sha256":  "13f53484f93d76fd2e6bc490c1677118ef3a3dca6007a89b8344b212c6656fd9"
+                         },
+                         {
+                             "path":  "lang/pt_BR/ai_grader.php",
+                             "sha256":  "846d0d33e3c9e0505306f50393b623804745a4dd99008e76e6df9f9f0776a97b"
+                         },
+                         {
+                             "path":  "lang/pt_BR/ai-grader.php",
+                             "sha256":  "e0a602247bc8e32225356f80a9a712523d4d5b0919ea2980013019542e7b4c24"
+                         },
+                         {
+                             "path":  "lang/pt_BR/auth.php",
+                             "sha256":  "029823d4e0f2a8cce3b9ccb90e3eacdb4c9f28947ba59a5525bd39c14c869716"
+                         },
+                         {
+                             "path":  "lang/pt_BR/pagination.php",
+                             "sha256":  "5c9bed6d2c965666d0c8b9f17f93f87cbfc7a240ead19b3b061764e8238e219f"
+                         },
+                         {
+                             "path":  "lang/pt_BR/passwords.php",
+                             "sha256":  "1033d4d34a49e17610dee7a13e14d13525472a96396a96c07d3870f337e10498"
+                         },
+                         {
+                             "path":  "lang/pt_BR/translation.php",
+                             "sha256":  "23f30b9e7c9832e585d7c68782386c41ea4e18074bfc62ad56bd7d843ab5621e"
+                         },
+                         {
+                             "path":  "lang/pt_BR/validation.php",
+                             "sha256":  "13f53484f93d76fd2e6bc490c1677118ef3a3dca6007a89b8344b212c6656fd9"
+                         },
+                         {
+                             "path":  "package.json",
+                             "sha256":  "8e53535dc967364a752a5258533bc414f43b8a2d42bfb35476af954d1ad9bb1a"
+                         },
+                         {
+                             "path":  "package-lock.json",
+                             "sha256":  "90263b96e78f4f89958e2ace3abaf1c93456ad7afc5ee965872befdc1a2863fa"
+                         },
+                         {
+                             "path":  "phpunit.xml",
+                             "sha256":  "83583a0471ba76f05c80cf532f45aef434b13c86d801a09dd7697c3936f03c3c"
+                         },
+                         {
+                             "path":  "public/.htaccess",
+                             "sha256":  "b7e379c77639fd56144947dbae84c84eb466d9c686ea81f2f013ae85421da923"
+                         },
+                         {
+                             "path":  "public/index.php",
+                             "sha256":  "eba77cba39695b6bd091fe5211d481f7ebb2ce2d8d26230b5a609465d0a4aff9"
+                         },
+                         {
+                             "path":  "public/robots.txt",
+                             "sha256":  "e5c4b84484ee4216e9373be99380320c25dd94805f99f0a805846f087636553f"
+                         },
+                         {
+                             "path":  "README.md",
+                             "sha256":  "33baa24bf68efe5c2e971dc307bff1f69c72d89bfde3a4f3e2ec0e40a35ace66"
+                         },
+                         {
+                             "path":  "resources/js/graderai.js",
+                             "sha256":  "f21a66a8a28f61519793e7439a9ee65832f674abfe947d585dbd7b70ebd059af"
+                         },
+                         {
+                             "path":  "resources/scss/_variables.scss",
+                             "sha256":  "fa028a023986f9fa33575645d90edd2a47e34810059a9326f174c558bbaa4cd4"
+                         },
+                         {
+                             "path":  "resources/scss/_variables-dark.scss",
+                             "sha256":  "609d8a3343dcce0fbbdfec4528419e91df76c7de614a5c5918ed09619e6562ac"
+                         },
+                         {
+                             "path":  "resources/scss/custom/_custom-scrollbar.scss",
+                             "sha256":  "3efb6a31d33016c64562d4d2713cabe6ad3b2d1b3adbae7308c3ce319d6da47e"
+                         },
+                         {
+                             "path":  "resources/scss/custom/components/_avatar.scss",
+                             "sha256":  "dd9bdf1df4d0404f4b9d5ac79d59baf0b7efb28fd8f1c3fdfde53464f794226b"
+                         },
+                         {
+                             "path":  "resources/scss/custom/components/_badge.scss",
+                             "sha256":  "8c904d6f64308d3a4ec838de09cfd6fd3b657124415381dedd98ec1cdc6335ca"
+                         },
+                         {
+                             "path":  "resources/scss/custom/components/_breadcrumb.scss",
+                             "sha256":  "fe2f9cdbb5274166523dbd716d94b0113d64cd9cfeca4b18d1d379a624c42f70"
+                         },
+                         {
+                             "path":  "resources/scss/custom/components/_buttons.scss",
+                             "sha256":  "3984e3bae9c0c96e81d84056aea3fe465ad52720f623db5c95c1e29f097c2428"
+                         },
+                         {
+                             "path":  "resources/scss/custom/components/_card.scss",
+                             "sha256":  "5c679934971749d4bf0e3d4c8fef56a8a8d77aff22153d3291d5ed7b233f375a"
+                         },
+                         {
+                             "path":  "resources/scss/custom/components/_dropdown.scss",
+                             "sha256":  "ba972fe079c172b0de4b74dd9e67cb9df9f94f32c60228b1bf025e92e0422cb3"
+                         },
+                         {
+                             "path":  "resources/scss/custom/components/_forms.scss",
+                             "sha256":  "357cd79cfe5bfcfd050406cc5a0efb6171eb84db51d6a2b935c618d5a02d0124"
+                         },
+                         {
+                             "path":  "resources/scss/custom/components/_helper.scss",
+                             "sha256":  "b8bf8664d8cec5d9f7ee1c92500c9c8593ce5cc84aba18f19c177df4fd665762"
+                         },
+                         {
+                             "path":  "resources/scss/custom/components/_nav.scss",
+                             "sha256":  "1bae277d2237dd8b6f3e82b82d47a3a2f98cc0439a679a29e49cc14c8d2c4257"
+                         },
+                         {
+                             "path":  "resources/scss/custom/components/_pagination.scss",
+                             "sha256":  "ab485cbcedbe69387eb802fcfd0dfde997451880d30b495725c627a7f0317c76"
+                         },
+                         {
+                             "path":  "resources/scss/custom/components/_print.scss",
+                             "sha256":  "f46ec56df653bf6bf0954b97e8f19dc52c130550d95858c844d7bc2cf3b2e2ff"
+                         },
+                         {
+                             "path":  "resources/scss/custom/components/_progress.scss",
+                             "sha256":  "46166f5a3f7c0b9b905bab09450e791eae1bdfd38dc096e62253e154334a2203"
+                         },
+                         {
+                             "path":  "resources/scss/custom/components/_reboot.scss",
+                             "sha256":  "af445a41959af2b9172b6107cb0abe0214a19b0173d41d34ba603d25cfd86624"
+                         },
+                         {
+                             "path":  "resources/scss/custom/components/_root.scss",
+                             "sha256":  "a00ea912b1e4a53cd38b95a9c5ab75ff25a8d5dafe42dd046357f4c3cf76a041"
+                         },
+                         {
+                             "path":  "resources/scss/custom/components/_table.scss",
+                             "sha256":  "ef186284ccd333d3b25189f996481eaf8344776be34baa4175400ef7645e9847"
+                         },
+                         {
+                             "path":  "resources/scss/custom/components/_waves.scss",
+                             "sha256":  "bd8cf328f01fd523dec05de7f06168ecc8ad4b4937ba3dffcca0fa1350427626"
+                         },
+                         {
+                             "path":  "resources/scss/custom/components/_widgets.scss",
+                             "sha256":  "45fb9fb9372c80a7d72fd1b9e1aef7f2c4daad48f546656594b172cccfca1d07"
+                         },
+                         {
+                             "path":  "resources/scss/custom/structure/_footer.scss",
+                             "sha256":  "7aae1619558ac274eab68efb62955ad894a719202274361827f12a7bc14d7ef3"
+                         },
+                         {
+                             "path":  "resources/scss/custom/structure/_general.scss",
+                             "sha256":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                         },
+                         {
+                             "path":  "resources/scss/custom/structure/_layouts.scss",
+                             "sha256":  "5fcd619ed545ffd74dfcdf853833a07ac6eb912168215431359bc60ac442daa3"
+                         },
+                         {
+                             "path":  "resources/scss/custom/structure/_page-head.scss",
+                             "sha256":  "ae7ba03ad20f57d3f30b74065bd43808804504f1845b03d6765a55ff4a215bce"
+                         },
+                         {
+                             "path":  "resources/scss/custom/structure/_topbar.scss",
+                             "sha256":  "c828fbf2c8cc79ad5482eca7a973cca200a9c9a372a1ba64514db7f58c368e8e"
+                         },
+                         {
+                             "path":  "resources/scss/custom/structure/_vertical.scss",
+                             "sha256":  "1aabb194de9330078d80c985cd1c692a5330e296b6698e84db380269621aef1b"
+                         },
+                         {
+                             "path":  "resources/scss/graderai.scss",
+                             "sha256":  "70f81b8ada7b3dda0667204ba752017780f5fed2b3edc9af83ef98531901385a"
+                         },
+                         {
+                             "path":  "resources/static/images/favicon.ico",
+                             "sha256":  "3cca38215f1a99e02d1ace70e0bcd3c2c36b379c2f0a486bcb1b3319a53d850f"
+                         },
+                         {
+                             "path":  "resources/static/images/flags/brazil.svg",
+                             "sha256":  "150ca961dc4c63fd448cae1c7e3a0d019a3f9be324d5a1adc7de2703955f0cc8"
+                         },
+                         {
+                             "path":  "resources/static/images/flags/us.jpg",
+                             "sha256":  "39840385496ba77ebcdb3de129ceee9fef22eeadee54be38f4c7343901788762"
+                         },
+                         {
+                             "path":  "resources/static/images/logo-dark.png",
+                             "sha256":  "d5f2fcb723da220451b1eacd1ccebf074547bed21cc365e6c6334874d4bd2ef5"
+                         },
+                         {
+                             "path":  "resources/static/images/logo-light.png",
+                             "sha256":  "0a3b20d20c5398647258e65143588b55eef7990fc38a2549eaa2d1868eb8479d"
+                         },
+                         {
+                             "path":  "resources/views/ai-grader/ai-providers/_form.blade.php",
+                             "sha256":  "702a2610ace4a88c5558a0d8377f3149eddb04fb19dae16c877be7c12d9b322b"
+                         },
+                         {
+                             "path":  "resources/views/ai-grader/ai-providers/create.blade.php",
+                             "sha256":  "9eb9d2452e5ddb3fa16953ba4403c4f811ebd44eda741b6e20d40d0c6151c721"
+                         },
+                         {
+                             "path":  "resources/views/ai-grader/ai-providers/edit.blade.php",
+                             "sha256":  "6556091c38b30b2689bfa03a998aa90495be1c7edf7bd2d158c7078ac233832e"
+                         },
+                         {
+                             "path":  "resources/views/ai-grader/ai-providers/index.blade.php",
+                             "sha256":  "c4c3f631570ea9d90f5ac6cb67e5d3453e1f672d72e10f0829cfa5afd42ec5e3"
+                         },
+                         {
+                             "path":  "resources/views/ai-grader/ai-providers/show.blade.php",
+                             "sha256":  "b58abfc6207a24add347bb488a4323b9b99ddad04801bb322cf65cf281d07bd0"
+                         },
+                         {
+                             "path":  "resources/views/ai-grader/blueprints/_form.blade.php",
+                             "sha256":  "fb810457f8f9f559246dc6c89c5cc41d0cf1aa92cc97ae85b14058f839074690"
+                         },
+                         {
+                             "path":  "resources/views/ai-grader/blueprints/create.blade.php",
+                             "sha256":  "ca695fb50374692a8801d9335a2f0d3ac4697e943c60f8cf27213983b6b2eb29"
+                         },
+                         {
+                             "path":  "resources/views/ai-grader/blueprints/edit.blade.php",
+                             "sha256":  "a34fa08b00b0b4d629abfa573e711af505f2279756048d6dcc44a32e0574bfe8"
+                         },
+                         {
+                             "path":  "resources/views/ai-grader/blueprints/index.blade.php",
+                             "sha256":  "8f429ebac8d216ded1b1e3230846c6a2baebd8d524b680a1475a7f2054de754e"
+                         },
+                         {
+                             "path":  "resources/views/ai-grader/blueprints/questions/edit.blade.php",
+                             "sha256":  "fe7c8277dfe654394930b3ca93239554223ba658fcdf9e1a3d9a6b449086e62a"
+                         },
+                         {
+                             "path":  "resources/views/ai-grader/blueprints/quizzes/show.blade.php",
+                             "sha256":  "24c6db3b8abf00fbceff40b3d34809ef4bc71c31daa837fb19ddd031cdd2bc0e"
+                         },
+                         {
+                             "path":  "resources/views/ai-grader/blueprints/show.blade.php",
+                             "sha256":  "286a7e6b5ed49cea9785e967fb937a14112ba7d4bf6ad12e09c769c8ac68e6ba"
+                         },
+                         {
+                             "path":  "resources/views/ai-grader/client-settings/edit.blade.php",
+                             "sha256":  "93f0a80f5ea0b229b43ac952c5624275b67ba0b754e9b3f3f3345a7f6e2e42a1"
+                         },
+                         {
+                             "path":  "resources/views/ai-grader/client-settings/index.blade.php",
+                             "sha256":  "8805e8479d799147a331fdad953dbe18cff92e1e4551d22103281c75e2e3dff2"
+                         },
+                         {
+                             "path":  "resources/views/ai-grader/client-settings/show.blade.php",
+                             "sha256":  "d6ad9ef389ccd9d574f77b63da25342d3be6c8b63dcd5a3f61213a654c6cc1f8"
+                         },
+                         {
+                             "path":  "resources/views/ai-grader/correction-items/index.blade.php",
+                             "sha256":  "6c4683b764e45e3450dc3a907fd207140a13796a9e576887b8e024b94523ccda"
+                         },
+                         {
+                             "path":  "resources/views/ai-grader/correction-items/show.blade.php",
+                             "sha256":  "2b8ef9be3772ea1d4d368ec92a47acdb98f1a7a0ad68ef6cf2d111a13baad309"
+                         },
+                         {
+                             "path":  "resources/views/ai-grader/lti-installation/index.blade.php",
+                             "sha256":  "472f0ec52d49a5382afb9e2bd7c91c417757aa17d121ad5bad9ae2bb228c403f"
+                         },
+                         {
+                             "path":  "resources/views/ai-grader/partials/breadcrumb.blade.php",
+                             "sha256":  "f9a5de5c045a611c03f8e13e055d6abdab8d6114547e44f7b1547224a383c3c5"
+                         },
+                         {
+                             "path":  "resources/views/ai-grader/partials/footer.blade.php",
+                             "sha256":  "bc918db1d4c2a0ffc9a1eaedd0ea55fc90fa274a61d82493bcfafaef6acbf5f6"
+                         },
+                         {
+                             "path":  "resources/views/ai-grader/partials/sidebar.blade.php",
+                             "sha256":  "01198285193f34371d1bb5c227bca8ad9425f87cc5babb1de4e8aa0f8fa67cde"
+                         },
+                         {
+                             "path":  "resources/views/ai-grader/partials/topbar.blade.php",
+                             "sha256":  "1caf4f7ea965342c4e26044c20a96665d8dbbe0d08f04de64c31c4a18d9fe5fe"
+                         },
+                         {
+                             "path":  "resources/views/auth/forgot-password.blade.php",
+                             "sha256":  "bcfd85f0e604fe9c4bf62fcb2dee0dc80bfcda8da9eb8d878000300c9dab2891"
+                         },
+                         {
+                             "path":  "resources/views/auth/login.blade.php",
+                             "sha256":  "15e4708aa853924cac6342ec701e5ea9c408cc78ecd24be3a683483a33fca80e"
+                         },
+                         {
+                             "path":  "resources/views/auth/reset-password.blade.php",
+                             "sha256":  "1cd3d24acfd318ed8091634af1a3972be09611bff6aa95a1fc48606aca365a7d"
+                         },
+                         {
+                             "path":  "resources/views/canvas-environments/create.blade.php",
+                             "sha256":  "980303b7b0f3dc09de9becbd618bdca630fcab57bef690d7e367289acf036246"
+                         },
+                         {
+                             "path":  "resources/views/canvas-environments/edit.blade.php",
+                             "sha256":  "99c97832389b05e4eb6da6e019c7f2d22c054f3f14f34af07cd1fe00ebd69ec8"
+                         },
+                         {
+                             "path":  "resources/views/canvas-environments/index.blade.php",
+                             "sha256":  "56e742247d18375d660c0bc076181bc880f8279b344e4fdcffb57e93c2ceeec7"
+                         },
+                         {
+                             "path":  "resources/views/errors/404.blade.php",
+                             "sha256":  "03ae9e07f732986738725f87b0f5982bca6d56d41e80298f7013fecd41c1628a"
+                         },
+                         {
+                             "path":  "resources/views/layouts/ai-grader.blade.php",
+                             "sha256":  "7416ac891daabcaaad9b2c02882fb65d7afd520a40a6260e40930a2dd0d07cbe"
+                         },
+                         {
+                             "path":  "resources/views/layouts/guest.blade.php",
+                             "sha256":  "c1e53d9876e815de040e32c25f4875e153000fa44acff838eb52b83ebc3ac376"
+                         },
+                         {
+                             "path":  "resources/views/layouts/lti.blade.php",
+                             "sha256":  "717160d0d3bfadf151b0c2e84bc30191b1fcb8139317b4de0718d00ad3fcd0fb"
+                         },
+                         {
+                             "path":  "resources/views/lti/ai-grader/_context-fields.blade.php",
+                             "sha256":  "c9381cc5f75473561c67f64e1562417d4886aece3a3aec008b21815a6a03d155"
+                         },
+                         {
+                             "path":  "resources/views/lti/ai-grader/_course-status.blade.php",
+                             "sha256":  "7d4b72bbb70e8da5d415ed327c40590b283d6a66d8cc06a8be925b6322c571c8"
+                         },
+                         {
+                             "path":  "resources/views/lti/ai-grader/_rubric-applied.blade.php",
+                             "sha256":  "8de8a04a60ebaa10972f22c50651ff6a2bff0eac8f496d3ec30e9e4d9f173b76"
+                         },
+                         {
+                             "path":  "resources/views/lti/ai-grader/_rubric-summary.blade.php",
+                             "sha256":  "b5dca587883d3defeac211d9c41d2ce5b3771dd71db51bd24bb270a78d9db4d3"
+                         },
+                         {
+                             "path":  "resources/views/lti/ai-grader/_show-status.blade.php",
+                             "sha256":  "13857fbffddb4a1abb1cd21ee8a9aa06cdb65aa3829106fa80aadfa4eda50a46"
+                         },
+                         {
+                             "path":  "resources/views/lti/ai-grader/blueprint.blade.php",
+                             "sha256":  "254d2933500fd3e93de0d9da0e6c839845a7bca5fc4cd2460d2130d0f881c3f8"
+                         },
+                         {
+                             "path":  "resources/views/lti/ai-grader/course.blade.php",
+                             "sha256":  "a051b4387d21665782030e744be1d9f71fe551ca47e450f8985aceccc6dd1cff"
+                         },
+                         {
+                             "path":  "resources/views/lti/ai-grader/course-diagnostic.blade.php",
+                             "sha256":  "eb0f83ff970844b3670748c8344cb5e4ea55934b7ebdc033d931060cb077d371"
+                         },
+                         {
+                             "path":  "resources/views/lti/ai-grader/enable-blueprint.blade.php",
+                             "sha256":  "4ef9094b087cead1225d974ca9a3b3b91af1bc99239673aebc461ec589b1f940"
+                         },
+                         {
+                             "path":  "resources/views/lti/ai-grader/forbidden.blade.php",
+                             "sha256":  "e2eab6c83220b60539d4371ec7d93437fa66b4d18ddc5dbd4adc181a77dd4ac4"
+                         },
+                         {
+                             "path":  "resources/views/lti/ai-grader/info.blade.php",
+                             "sha256":  "17ccb70d6ad11d4a922becb38a99055404b5a43e0ba59a05ef68e699fbbfbaca"
+                         },
+                         {
+                             "path":  "resources/views/lti/ai-grader/install.blade.php",
+                             "sha256":  "6dea73dd0aa2f5034eb010cba961849694bf8cce59247c83908f8389ab09df0b"
+                         },
+                         {
+                             "path":  "resources/views/lti/ai-grader/launch-diagnostic.blade.php",
+                             "sha256":  "94d16c46b297758b46b44a3effe96d7423bb8a461be3fced16f2f1634abb8606"
+                         },
+                         {
+                             "path":  "resources/views/lti/ai-grader/login-diagnostic.blade.php",
+                             "sha256":  "9def5b1d107dc2061857f8d0956aa83654cc5992a8995a2c3eb07db65553f1ac"
+                         },
+                         {
+                             "path":  "resources/views/lti/ai-grader/show.blade.php",
+                             "sha256":  "54c45aea9c6598a03c72cfe45004dd859c4edba4163263858ca58024e3270882"
+                         },
+                         {
+                             "path":  "resources/views/organizations/create.blade.php",
+                             "sha256":  "2c9d61e19a19b381122eb604cc36c979e0978ac38d2ff4ff31f2af449e02be4a"
+                         },
+                         {
+                             "path":  "resources/views/organizations/index.blade.php",
+                             "sha256":  "8360e92ed0cecc9b6c3f8e0437e3121e1a0b9a00bd30038b46a8bfbe137f1f75"
+                         },
+                         {
+                             "path":  "resources/views/profile/edit.blade.php",
+                             "sha256":  "41ef93b9648b0ca3f87028346a1af481b3667ec3d312a7ab690bd6a291987032"
+                         },
+                         {
+                             "path":  "resources/views/profile/partials/update-password-form.blade.php",
+                             "sha256":  "135528315ffc6a2806bce4bfe7888e79d14d056525d1f016dd8b7f47c323066b"
+                         },
+                         {
+                             "path":  "resources/views/profile/partials/update-profile-information-form.blade.php",
+                             "sha256":  "5e5f5f989c39d4254ca187c7caf91994df62f68b8ce9eea344399074c5e8d078"
+                         },
+                         {
+                             "path":  "routes/auth.php",
+                             "sha256":  "1340dfbe1b9cfab1187e36aa4d64b58f4c1bb8669fec0e48365ddaa709d664fa"
+                         },
+                         {
+                             "path":  "routes/console.php",
+                             "sha256":  "aacd70c85239be5e9789c889c3837e7b75e2563ea73a53c86799e072cd0f7750"
+                         },
+                         {
+                             "path":  "routes/web.php",
+                             "sha256":  "56309aba6376a1a18dd45aa73264dd6720d819187f44eb0c507a34346bfbc491"
+                         },
+                         {
+                             "path":  "storage/app/.gitignore",
+                             "sha256":  "993b9e3709d7b5189da331725d1169d79e561a509db2490b722b525073d2d976"
+                         },
+                         {
+                             "path":  "storage/app/private/.gitignore",
+                             "sha256":  "240a3e0d37d2e86b614063f5347eb02d4f99ca6c254de6b82871ff8d95532a7d"
+                         },
+                         {
+                             "path":  "storage/app/public/.gitignore",
+                             "sha256":  "1ac064e39b0101c2e95fbf88a05fe1e331f576b6f21c3984d12d444d1896de33"
+                         },
+                         {
+                             "path":  "storage/app/public/templates/discipline-models-template.csv",
+                             "sha256":  "9cd78b3a7a2287bb273ba24255a9cb12212138235da8166fa2183acaec5e9687"
+                         },
+                         {
+                             "path":  "storage/framework/.gitignore",
+                             "sha256":  "2d452d65596636197757afa17df52331c84da7bb74ee0f3462fd5be4eb6afdc6"
+                         },
+                         {
+                             "path":  "storage/framework/cache/.gitignore",
+                             "sha256":  "32f79194633ddb34f013c6ee8819d112104ff822357adf308ec385b46a7f42f6"
+                         },
+                         {
+                             "path":  "storage/framework/cache/data/.gitignore",
+                             "sha256":  "240a3e0d37d2e86b614063f5347eb02d4f99ca6c254de6b82871ff8d95532a7d"
+                         },
+                         {
+                             "path":  "storage/framework/sessions/.gitignore",
+                             "sha256":  "240a3e0d37d2e86b614063f5347eb02d4f99ca6c254de6b82871ff8d95532a7d"
+                         },
+                         {
+                             "path":  "storage/framework/testing/.gitignore",
+                             "sha256":  "240a3e0d37d2e86b614063f5347eb02d4f99ca6c254de6b82871ff8d95532a7d"
+                         },
+                         {
+                             "path":  "storage/framework/views/.gitignore",
+                             "sha256":  "240a3e0d37d2e86b614063f5347eb02d4f99ca6c254de6b82871ff8d95532a7d"
+                         },
+                         {
+                             "path":  "storage/logs/.gitignore",
+                             "sha256":  "240a3e0d37d2e86b614063f5347eb02d4f99ca6c254de6b82871ff8d95532a7d"
+                         },
+                         {
+                             "path":  "tests/Feature/AiGraderAiProviderControllerTest.php",
+                             "sha256":  "2c3e551eddecb8cfee0a73163f21f0d16865ef20897ab69229d1efe41ff421dd"
+                         },
+                         {
+                             "path":  "tests/Feature/AiGraderBlueprintConfigControllerTest.php",
+                             "sha256":  "507feb98029843c882903c98ba85dd234afdec58be82e9c922119f1a76fed0fa"
+                         },
+                         {
+                             "path":  "tests/Feature/AiGraderCanvasPublisherTest.php",
+                             "sha256":  "2a88ed5582d5c1b2f0d50a6f21fb37fe86888a51ab37ed7c906cf3560b835c95"
+                         },
+                         {
+                             "path":  "tests/Feature/AiGraderClientSettingsControllerTest.php",
+                             "sha256":  "d449c86eeb59597506a96c9d54cb96b3d12bdc2332eb9899d2a67976064e4762"
+                         },
+                         {
+                             "path":  "tests/Feature/AiGraderCorrectionItemControllerTest.php",
+                             "sha256":  "89088ba76eec65746580790d72b245fd16e1584f62d52a63ffecf71176b74c60"
+                         },
+                         {
+                             "path":  "tests/Feature/AiGraderLtiControllerTest.php",
+                             "sha256":  "6bec26ec009afb3da193cd9ebd15fe9066aa51907600a40ddfc4f7d59ad48e8d"
+                         },
+                         {
+                             "path":  "tests/Feature/AiGraderLtiSecurityTest.php",
+                             "sha256":  "30a2fc3235b981e9c53bcee1540f3f4554de9bd20abf7931438f2bebd9641fc6"
+                         },
+                         {
+                             "path":  "tests/Feature/AiGraderPendingProcessorTest.php",
+                             "sha256":  "bc973caeb08d254b1a7ab7d77140c44537b4e2c3e5d9c50b64b6a58d4601a392"
+                         },
+                         {
+                             "path":  "tests/Feature/AiGraderPipelineJobsTest.php",
+                             "sha256":  "5da41e715bf53c4b494e6a6644897a8127e7ed51c4930713a750d75e04067278"
+                         },
+                         {
+                             "path":  "tests/Feature/AiGraderProviderResolverTest.php",
+                             "sha256":  "f849a7bf4d7f7875d4b35c075e17a8f41dcb595b2a2f49fcbc3c8f3e2f5dd3b7"
+                         },
+                         {
+                             "path":  "tests/Feature/AiGraderScheduledPipelineDispatcherCommandTest.php",
+                             "sha256":  "6378413eeb4a077358efc5a6ad833bc332971b7c1c43a475ed13fe84f32f0ce7"
+                         },
+                         {
+                             "path":  "tests/Feature/AiGraderServicesTest.php",
+                             "sha256":  "7853fac600e4ed4ac72de026949cc0ad4c082660daf48ce7c2e70cb506bbaab0"
+                         },
+                         {
+                             "path":  "tests/Feature/AiGraderSubmissionCollectorTest.php",
+                             "sha256":  "6690a1988eb2094868d43f9487405a4c87a16401703af24de5c722bd32f3fe44"
+                         },
+                         {
+                             "path":  "tests/Feature/Auth/AuthenticationTest.php",
+                             "sha256":  "4aee238d104ad3e0113e0de997d6030a7c356ad596ec58dd8073a2a0f56a9562"
+                         },
+                         {
+                             "path":  "tests/Feature/Auth/PasswordResetTest.php",
+                             "sha256":  "b3962109ef2699ce50dea480d911a311b5ef99ec840a8ba0f233885cd62f52b6"
+                         },
+                         {
+                             "path":  "tests/Feature/Auth/PasswordUpdateTest.php",
+                             "sha256":  "a91138bb4b4781316b33f2ab44ea69fb0064cf7a3dea0f08cda1ac38ebb06dd4"
+                         },
+                         {
+                             "path":  "tests/Feature/CanvasEnvironmentControllerTest.php",
+                             "sha256":  "5982ed87c7206f91dd1a0bb9872c60f960369fdb4b1cef1f0da0befd7fa78104"
+                         },
+                         {
+                             "path":  "tests/Feature/ExampleTest.php",
+                             "sha256":  "408db210f34c62cbf11226994b767ba105a5a8a40975bcd90ab4eb5bdcdbdfe7"
+                         },
+                         {
+                             "path":  "tests/Feature/LmStudioAiGraderProviderTest.php",
+                             "sha256":  "7393f6e284c114a875d491432e40de170676781a2c48542dcca748ee992eae4c"
+                         },
+                         {
+                             "path":  "tests/Feature/MockAiGraderProviderTest.php",
+                             "sha256":  "6a1df79e078001b722c051e8c22f62ff1d1b779d1c2ec9691c6590df01490af7"
+                         },
+                         {
+                             "path":  "tests/Feature/ProfileTest.php",
+                             "sha256":  "4590c56769fcf894fc772719957478af7dd09879d7357bd005e65db3bed0bdfa"
+                         },
+                         {
+                             "path":  "tests/Pest.php",
+                             "sha256":  "4219a474d11fe6dfeea61d27ec76eb3c65736f395ec28e6510ff0df472a70a6f"
+                         },
+                         {
+                             "path":  "tests/TestCase.php",
+                             "sha256":  "85379b55535501066a73d30abe31b7f1676102731fa9f78b09c79a46579a78db"
+                         },
+                         {
+                             "path":  "tests/Unit/ExampleTest.php",
+                             "sha256":  "d86e67e8dbb5e66fa3f63b8eaaf98529bf11786e3345e76dc2e1e1635e20ea56"
+                         },
+                         {
+                             "path":  "THIRD-PARTY-NOTICES.md",
+                             "sha256":  "2c50fc6595490990e23b14f4cde5b766751bf356e3cfa4dec6c3f150eb597bf4"
+                         },
+                         {
+                             "path":  "tools/check-nette-licenses.php",
+                             "sha256":  "c837a66c9b1a858cf19d7d91cd4052041b12ab001f3f6321e0d46727f624aebe"
+                         },
+                         {
+                             "path":  "vite.config.js",
+                             "sha256":  "f1ee2f069b533b477a08beb7cfdd1e6fca2a23fe79a5e19afff813cf2a0f2664"
+                         }
+                     ],
+    "packages":  {
+                     "value":  [
+                                   {
+                                       "name":  "laravel/framework",
+                                       "version":  "v13.42.0",
+                                       "direct":  true,
+                                       "scope":  "production",
+                                       "parents":  [
+
+                                                   ],
+                                       "development_consumers":  [
+                                                                     "pestphp/pest-plugin-laravel"
+                                                                 ],
+                                       "reference":  "f5c01f6b63803f16f38ebb31622c4fea412bd022",
+                                       "audit_applicable_advisories":  0
+                                   },
+                                   {
+                                       "name":  "symfony/mailer",
+                                       "version":  "v8.0.15",
+                                       "direct":  false,
+                                       "scope":  "production",
+                                       "parents":  [
+                                                       {
+                                                           "name":  "laravel/framework",
+                                                           "constraint":  "^7.4.0 || ^8.0.0"
+                                                       }
+                                                   ],
+                                       "development_consumers":  [
+
+                                                                 ],
+                                       "reference":  "35e69bec2cdf2c53b927ef4b4eaadf86cd4d71be",
+                                       "audit_applicable_advisories":  0
+                                   },
+                                   {
+                                       "name":  "symfony/http-foundation",
+                                       "version":  "v7.4.23",
+                                       "direct":  false,
+                                       "scope":  "production",
+                                       "parents":  [
+                                                       {
+                                                           "name":  "fruitcake/php-cors",
+                                                           "constraint":  "^5.4|^6.4|^7.3|^8"
+                                                       },
+                                                       {
+                                                           "name":  "laravel/framework",
+                                                           "constraint":  "^7.4.0 || ^8.0.0"
+                                                       },
+                                                       {
+                                                           "name":  "symfony/http-kernel",
+                                                           "constraint":  "^7.4|^8.0"
+                                                       }
+                                                   ],
+                                       "development_consumers":  [
+
+                                                                 ],
+                                       "reference":  "7fb73cffa06e2bcc2cb523fcccb1e8174106b206",
+                                       "audit_applicable_advisories":  0
+                                   },
+                                   {
+                                       "name":  "symfony/http-kernel",
+                                       "version":  "v7.4.23",
+                                       "direct":  false,
+                                       "scope":  "production",
+                                       "parents":  [
+                                                       {
+                                                           "name":  "laravel/framework",
+                                                           "constraint":  "^7.4.0 || ^8.0.0"
+                                                       }
+                                                   ],
+                                       "development_consumers":  [
+
+                                                                 ],
+                                       "reference":  "94c57f4c5c45a311d244a0aeadb72b14ee41d25d",
+                                       "audit_applicable_advisories":  0
+                                   },
+                                   {
+                                       "name":  "league/commonmark",
+                                       "version":  "2.10.7",
+                                       "direct":  false,
+                                       "scope":  "production",
+                                       "parents":  [
+                                                       {
+                                                           "name":  "laravel/framework",
+                                                           "constraint":  "^2.8.1"
+                                                       }
+                                                   ],
+                                       "development_consumers":  [
+
+                                                                 ],
+                                       "reference":  "8eb53e906fd60c67038d22f1f1cab420ed58b8be",
+                                       "audit_applicable_advisories":  0
+                                   },
+                                   {
+                                       "name":  "guzzlehttp/guzzle",
+                                       "version":  "7.15.2",
+                                       "direct":  false,
+                                       "scope":  "production",
+                                       "parents":  [
+                                                       {
+                                                           "name":  "laravel/framework",
+                                                           "constraint":  "^7.8.2 || ^8.0"
+                                                       }
+                                                   ],
+                                       "development_consumers":  [
+
+                                                                 ],
+                                       "reference":  "744101956d78b7c1384d0cbf379db13e859167bf",
+                                       "audit_applicable_advisories":  0
+                                   },
+                                   {
+                                       "name":  "symfony/polyfill-intl-idn",
+                                       "version":  "v1.43.0",
+                                       "direct":  false,
+                                       "scope":  "production",
+                                       "parents":  [
+                                                       {
+                                                           "name":  "egulias/email-validator",
+                                                           "constraint":  "^1.26"
+                                                       },
+                                                       {
+                                                           "name":  "symfony/mime",
+                                                           "constraint":  "^1.10"
+                                                       }
+                                                   ],
+                                       "development_consumers":  [
+
+                                                                 ],
+                                       "reference":  "533d68cf99c8f8ee2e8893c59ed59192e92cfd74",
+                                       "audit_applicable_advisories":  0
+                                   },
+                                   {
+                                       "name":  "symfony/mime",
+                                       "version":  "v7.4.22",
+                                       "direct":  false,
+                                       "scope":  "production",
+                                       "parents":  [
+                                                       {
+                                                           "name":  "laravel/framework",
+                                                           "constraint":  "^7.4.0 || ^8.0.0"
+                                                       },
+                                                       {
+                                                           "name":  "symfony/mailer",
+                                                           "constraint":  "^7.4|^8.0"
+                                                       }
+                                                   ],
+                                       "development_consumers":  [
+
+                                                                 ],
+                                       "reference":  "94a4c017435bc515f5ac80421a2c555fb9ca3676",
+                                       "audit_applicable_advisories":  0
+                                   },
+                                   {
+                                       "name":  "guzzlehttp/psr7",
+                                       "version":  "2.13.2",
+                                       "direct":  false,
+                                       "scope":  "production",
+                                       "parents":  [
+                                                       {
+                                                           "name":  "guzzlehttp/guzzle",
+                                                           "constraint":  "^2.13"
+                                                       },
+                                                       {
+                                                           "name":  "laravel/framework",
+                                                           "constraint":  "^2.9 || ^3.0"
+                                                       }
+                                                   ],
+                                       "development_consumers":  [
+
+                                                                 ],
+                                       "reference":  "adee536f95101929f262b8c59e8a61472f347d58",
+                                       "audit_applicable_advisories":  0
+                                   },
+                                   {
+                                       "name":  "symfony/routing",
+                                       "version":  "v7.4.23",
+                                       "direct":  false,
+                                       "scope":  "production",
+                                       "parents":  [
+                                                       {
+                                                           "name":  "laravel/framework",
+                                                           "constraint":  "^7.4.0 || ^8.0.0"
+                                                       }
+                                                   ],
+                                       "development_consumers":  [
+
+                                                                 ],
+                                       "reference":  "0000ade604b7bc798cb1e75edf6f17df48185f73",
+                                       "audit_applicable_advisories":  0
+                                   },
+                                   {
+                                       "name":  "league/flysystem",
+                                       "version":  "3.36.0",
+                                       "direct":  false,
+                                       "scope":  "production",
+                                       "parents":  [
+                                                       {
+                                                           "name":  "laravel/framework",
+                                                           "constraint":  "^3.25.1"
+                                                       },
+                                                       {
+                                                           "name":  "league/flysystem-local",
+                                                           "constraint":  "^3.0.0"
+                                                       }
+                                                   ],
+                                       "development_consumers":  [
+
+                                                                 ],
+                                       "reference":  "f7fb152932f30072d573510cbd4dd657d6475b25",
+                                       "audit_applicable_advisories":  0
+                                   },
+                                   {
+                                       "name":  "nette/schema",
+                                       "version":  "v1.3.5",
+                                       "direct":  false,
+                                       "scope":  "production",
+                                       "parents":  [
+                                                       {
+                                                           "name":  "league/config",
+                                                           "constraint":  "^1.2"
+                                                       }
+                                                   ],
+                                       "development_consumers":  [
+
+                                                                 ],
+                                       "reference":  "f0ab1a3cda782dbc5da270d28545236aa80c4002",
+                                       "audit_applicable_advisories":  0
+                                   },
+                                   {
+                                       "name":  "nette/utils",
+                                       "version":  "v4.1.3",
+                                       "direct":  false,
+                                       "scope":  "production",
+                                       "parents":  [
+                                                       {
+                                                           "name":  "nette/schema",
+                                                           "constraint":  "^4.0"
+                                                       }
+                                                   ],
+                                       "development_consumers":  [
+
+                                                                 ],
+                                       "reference":  "bb3ea637e3d131d72acc033cfc2746ee893349fe",
+                                       "audit_applicable_advisories":  0
+                                   }
+                               ],
+                     "Count":  13
+                 },
+    "composer_audit":  {
+                           "exit_code":  0,
+                           "advisories":  0,
+                           "abandoned":  0
+                       },
+    "npm_audit":  {
+                      "exit_code":  0,
+                      "vulnerabilities":  0
+                  },
+    "jwt_scan":  {
+                     "reference_commit":  "40a7e312791b0c87d2910017feb4c2a12fc63a38",
+                     "working_tree":  {
+                                          "files_inspected":  264,
+                                          "binary_files_skipped":  4,
+                                          "findings":  [
+
+                                                       ]
+                                      },
+                     "local_history":  [
+                                           {
+                                               "commit":  "40a7e312791b0c87d2910017feb4c2a12fc63a38",
+                                               "files_inspected":  253,
+                                               "binary_files_skipped":  4,
+                                               "findings":  [
+                                                                {
+                                                                    "path":  "tests/Feature/AiGraderLtiControllerTest.php",
+                                                                    "line":  374,
+                                                                    "format":  "JWT/JWS candidate",
+                                                                    "classification":  "historical synthetic unsigned negative-test fixture; literal removed from current source; Orca correlation pending"
+                                                                },
+                                                                {
+                                                                    "path":  "tests/Feature/AiGraderLtiControllerTest.php",
+                                                                    "line":  388,
+                                                                    "format":  "JWT/JWS candidate",
+                                                                    "classification":  "historical synthetic unsigned negative-test fixture; literal removed from current source; Orca correlation pending"
+                                                                }
+                                                            ]
+                                           }
+                                       ]
+                 },
+    "nette_license_sha256":  "b3bc3d38b9ec29d98bc83bd5fa44e583e8303cd97b62d203a9e5e21935126de9",
+    "previous_source_fingerprint_sha256":  "34db72b19a266aead39cc839a91c4037b804f88147765bc321813e1cbddb98af",
+    "formatting_verification":  {
+                                    "files_formatted":  58,
+                                    "normalized_ast_differences":  0,
+                                    "pint_final_exit":  0,
+                                    "full_suite_tests":  260,
+                                    "full_suite_assertions":  1035,
+                                    "full_suite_failures":  0,
+                                    "method":  "Name-resolved PHP AST comparison omitting imports/comments/locations; includes product prompt and string literals.",
+                                    "files":  [
+                                                  "app/Console/Commands/AiGraderCollectSubmissionsCommand.php",
+                                                  "app/Console/Commands/AiGraderDispatchScheduledPipelinesCommand.php",
+                                                  "app/Console/Commands/AiGraderProcessPendingCommand.php",
+                                                  "app/Console/Commands/AiGraderPublishCanvasCommand.php",
+                                                  "app/Console/Commands/AiGraderRunPipelineCommand.php",
+                                                  "app/Http/Controllers/AiGrader/AiGraderAiProviderController.php",
+                                                  "app/Http/Controllers/AiGrader/AiGraderBlueprintConfigController.php",
+                                                  "app/Http/Controllers/AiGrader/AiGraderClientSettingsController.php",
+                                                  "app/Http/Controllers/AiGrader/AiGraderCorrectionItemController.php",
+                                                  "app/Http/Controllers/AiGrader/AiGraderLtiInstallationController.php",
+                                                  "app/Http/Requests/AiGrader/UpsertAiGraderAiProviderRequest.php",
+                                                  "app/Http/Requests/AiGrader/UpsertAiGraderBlueprintConfigRequest.php",
+                                                  "app/Jobs/AiGrader/AiGraderCollectSubmissionsJob.php",
+                                                  "app/Jobs/AiGrader/AiGraderProcessPendingCorrectionsJob.php",
+                                                  "app/Jobs/AiGrader/AiGraderPublishCorrectedItemsJob.php",
+                                                  "app/Jobs/AiGrader/AiGraderRetryCorrectionItemJob.php",
+                                                  "app/Jobs/AiGrader/AiGraderRunPipelineJob.php",
+                                                  "app/Models/AiGraderAiProvider.php",
+                                                  "app/Models/AiGraderBatch.php",
+                                                  "app/Models/AiGraderBlueprintConfig.php",
+                                                  "app/Models/AiGraderClientSetting.php",
+                                                  "app/Models/AiGraderCorrectionItem.php",
+                                                  "app/Models/AiGraderQuestionConfig.php",
+                                                  "app/Models/AiGraderTeacherAction.php",
+                                                  "app/Models/AiGraderUsageLog.php",
+                                                  "app/Models/Organization.php",
+                                                  "app/Providers/AppServiceProvider.php",
+                                                  "app/Services/AiGrader/AiGraderCanvasPublisher.php",
+                                                  "app/Services/AiGrader/AiGraderCanvasSyncService.php",
+                                                  "app/Services/AiGrader/AiGraderChildCourseResolver.php",
+                                                  "app/Services/AiGrader/AiGraderCorrectionEvaluator.php",
+                                                  "app/Services/AiGrader/AiGraderCorrectionRetryService.php",
+                                                  "app/Services/AiGrader/AiGraderPendingProcessor.php",
+                                                  "app/Services/AiGrader/AiGraderPromptBuilder.php",
+                                                  "app/Services/AiGrader/AiGraderProviderResolver.php",
+                                                  "app/Services/AiGrader/AiGraderQuotaService.php",
+                                                  "app/Services/AiGrader/AiGraderSanitizer.php",
+                                                  "app/Services/AiGrader/AiGraderSubmissionCollector.php",
+                                                  "app/Services/AiGrader/AiGraderTeacherReviewService.php",
+                                                  "app/Services/AiGrader/Data/AiGraderPromptContext.php",
+                                                  "app/Services/AiGrader/Data/AiGraderResult.php",
+                                                  "app/Services/AiGrader/Providers/LmStudioAiGraderProvider.php",
+                                                  "app/Services/Canvas/CanvasApiClient.php",
+                                                  "app/Services/Canvas/Quizzes/CanvasQuizzesService.php",
+                                                  "app/Support/AiGraderLtiView.php",
+                                                  "lang/en/ai_grader.php",
+                                                  "lang/en/translation.php",
+                                                  "lang/pt_BR/ai_grader.php",
+                                                  "lang/pt_BR/translation.php",
+                                                  "tests/Feature/AiGraderAiProviderControllerTest.php",
+                                                  "tests/Feature/AiGraderBlueprintConfigControllerTest.php",
+                                                  "tests/Feature/AiGraderCanvasPublisherTest.php",
+                                                  "tests/Feature/AiGraderCorrectionItemControllerTest.php",
+                                                  "tests/Feature/AiGraderProviderResolverTest.php",
+                                                  "tests/Feature/AiGraderScheduledPipelineDispatcherCommandTest.php",
+                                                  "tests/Feature/AiGraderServicesTest.php",
+                                                  "tests/Feature/AiGraderSubmissionCollectorTest.php",
+                                                  "tests/Feature/LmStudioAiGraderProviderTest.php"
+                                              ],
+                                    "reference_source_fingerprint_sha256":  "51ab7cc22e0cc6a094e0a50acab1fb99c42140b42c87558676fae5b846fc5e7a"
+                                },
+    "source_fingerprint_history":  [
+                                       {
+                                           "scope":  "before global formatting",
+                                           "sha256":  "47468dce6c328ee6f8d1fbc2459cd0fb975146c51363ad0d870de575d6470caf"
+                                       },
+                                       {
+                                           "scope":  "after global formatting, before runtime JWT fixtures",
+                                           "sha256":  "51ab7cc22e0cc6a094e0a50acab1fb99c42140b42c87558676fae5b846fc5e7a"
+                                       },
+                                       {
+                                           "scope":  "after runtime JWT fixture generation, before Nette adoption distribution checks",
+                                           "sha256":  "34db72b19a266aead39cc839a91c4037b804f88147765bc321813e1cbddb98af"
+                                       }
+                                   ],
+    "jwt_runtime_verification":  {
+                                     "status":  "TOKENS FIXOS REMOVIDOS DOS TESTES",
+                                     "fixed_literals_replaced":  2,
+                                     "runtime_helper":  "aiGraderLtiUnsignedToken",
+                                     "algorithm":  "none",
+                                     "signature":  "empty",
+                                     "per_token_randomness":  "jti from random_bytes(16)",
+                                     "existing_fixture_claims":  "preserved",
+                                     "targeted_tests":  89,
+                                     "targeted_assertions":  436,
+                                     "full_suite_tests":  260,
+                                     "full_suite_assertions":  1035,
+                                     "full_suite_failures":  0,
+                                     "pint_exit":  0,
+                                     "current_literal_findings":  0,
+                                     "historical_literal_findings":  2,
+                                     "orca_ids_status":  "pending original evidence or new scan correlation"
+                                 },
+    "nette_license_adoption":  {
+                                   "status":  "BSD-3-Clause adotada e documentada em PACKAGE-REVIEW.md; aguardando validação de Segurança/Compliance.",
+                                   "packages":  [
+                                                    {
+                                                        "package":  "nette/schema",
+                                                        "version":  "v1.3.5",
+                                                        "adopted_alternative":  "BSD-3-Clause",
+                                                        "official_license_url":  "https://raw.githubusercontent.com/nette/schema/v1.3.5/license.md",
+                                                        "official_metadata_url":  "https://raw.githubusercontent.com/nette/schema/v1.3.5/composer.json",
+                                                        "official_metadata_sha256":  "4c16ab6bde2c4602b3bfb88445797298a51e9f9ebd3b3c5d32fdbe1f41c4569d",
+                                                        "license_sha256":  "b3bc3d38b9ec29d98bc83bd5fa44e583e8303cd97b62d203a9e5e21935126de9"
+                                                    },
+                                                    {
+                                                        "package":  "nette/utils",
+                                                        "version":  "v4.1.3",
+                                                        "adopted_alternative":  "BSD-3-Clause",
+                                                        "official_license_url":  "https://raw.githubusercontent.com/nette/utils/v4.1.3/license.md",
+                                                        "official_metadata_url":  "https://raw.githubusercontent.com/nette/utils/v4.1.3/composer.json",
+                                                        "official_metadata_sha256":  "2d3a56e2e42853e6915d7867e513c053138214b90323d61052ef7f130c5057c1",
+                                                        "license_sha256":  "b3bc3d38b9ec29d98bc83bd5fa44e583e8303cd97b62d203a9e5e21935126de9"
+                                                    }
+                                                ],
+                                   "project_license":  "proprietary, unchanged",
+                                   "distribution_notice":  "THIRD-PARTY-NOTICES.md",
+                                   "preserved_upstream_notice":  "docs/licenses/NETTE-LICENSE.md",
+                                   "verification_command":  "php tools/check-nette-licenses.php",
+                                   "positive_distribution_exit":  0,
+                                   "missing_notice_exit":  1,
+                                   "altered_installed_notice_exit":  1,
+                                   "pint_exit":  0,
+                                   "full_suite_tests":  260,
+                                   "full_suite_assertions":  1035,
+                                   "full_suite_failures":  0,
+                                   "external_deploy_performed":  false
+                               }
+}

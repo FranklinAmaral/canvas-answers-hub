@@ -12,9 +12,13 @@ class AiGraderClientSetting extends Model
     protected $table = 'ai_grader_client_settings';
 
     public const STATUS_INACTIVE = 'inactive';
+
     public const STATUS_TRIAL = 'trial';
+
     public const STATUS_ACTIVE = 'active';
+
     public const STATUS_SUSPENDED = 'suspended';
+
     public const STATUS_QUOTA_EXCEEDED = 'quota_exceeded';
 
     protected $fillable = [

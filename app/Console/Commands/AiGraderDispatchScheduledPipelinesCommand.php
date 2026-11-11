@@ -11,6 +11,7 @@ use App\Models\AiGraderQuestionConfig;
 use App\Models\AiGraderQuizConfig;
 use App\Services\AiGrader\AiGraderProviderResolver;
 use Illuminate\Console\Command;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Schema;
@@ -66,8 +67,8 @@ class AiGraderDispatchScheduledPipelinesCommand extends Command
     }
 
     /**
-     * @param array<string, int> $summary
-     * @param array<int, array<string, mixed>> $rows
+     * @param  array<string, int>  $summary
+     * @param  array<int, array<string, mixed>>  $rows
      */
     private function evaluateBlueprint(
         AiGraderBlueprintConfig $blueprintConfig,
@@ -75,8 +76,7 @@ class AiGraderDispatchScheduledPipelinesCommand extends Command
         array &$summary,
         array &$rows,
         AiGraderProviderResolver $providerResolver,
-    ): void
-    {
+    ): void {
         if (! $this->isEligible($blueprintConfig, $providerResolver)) {
             $summary['blueprints_skipped']++;
             $rows[] = $this->row($blueprintConfig, null, 'skipped', 'not_eligible');
@@ -165,7 +165,7 @@ class AiGraderDispatchScheduledPipelinesCommand extends Command
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Collection<int, AiGraderBlueprintConfig>
+     * @return Collection<int, AiGraderBlueprintConfig>
      */
     private function blueprints()
     {
@@ -202,8 +202,7 @@ class AiGraderDispatchScheduledPipelinesCommand extends Command
     private function isEligible(
         AiGraderBlueprintConfig $blueprintConfig,
         AiGraderProviderResolver $providerResolver,
-    ): bool
-    {
+    ): bool {
         $setting = $blueprintConfig->organization?->aiGraderClientSetting;
 
         if (! $setting?->enabled || ! in_array($setting->status, [
@@ -314,7 +313,7 @@ class AiGraderDispatchScheduledPipelinesCommand extends Command
     }
 
     /**
-     * @param array<string, string|null>|null $childCourse
+     * @param  array<string, string|null>|null  $childCourse
      * @return array<string, mixed>
      */
     private function row(AiGraderBlueprintConfig $blueprintConfig, ?array $childCourse, string $action, string $reason): array
@@ -364,7 +363,7 @@ class AiGraderDispatchScheduledPipelinesCommand extends Command
     }
 
     /**
-     * @param array<string, int> $summary
+     * @param  array<string, int>  $summary
      */
     private function renderSummary(array $summary): void
     {
@@ -387,7 +386,7 @@ class AiGraderDispatchScheduledPipelinesCommand extends Command
     }
 
     /**
-     * @param array<int, array<string, mixed>> $rows
+     * @param  array<int, array<string, mixed>>  $rows
      */
     private function renderRows(array $rows): void
     {

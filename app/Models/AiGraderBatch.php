@@ -13,16 +13,25 @@ class AiGraderBatch extends Model
     protected $table = 'ai_grader_batches';
 
     public const TRIGGER_MANUAL = 'manual';
+
     public const TRIGGER_SCHEDULED = 'scheduled';
+
     public const TRIGGER_AFTER_SUBMISSION = 'after_submission';
+
     public const TRIGGER_RETRY = 'retry';
+
     public const TRIGGER_QUOTA_RELEASED = 'quota_released';
 
     public const STATUS_PENDING = 'pending';
+
     public const STATUS_PROCESSING = 'processing';
+
     public const STATUS_COMPLETED = 'completed';
+
     public const STATUS_COMPLETED_WITH_ERRORS = 'completed_with_errors';
+
     public const STATUS_FAILED = 'failed';
+
     public const STATUS_CANCELLED = 'cancelled';
 
     protected $fillable = [

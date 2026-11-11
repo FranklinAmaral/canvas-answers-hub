@@ -18,7 +18,7 @@ function aiGraderPipelineOrganization(): Organization
 {
     return Organization::query()->create([
         'name' => 'Pipeline Org',
-        'slug' => 'pipeline-org-' . uniqid(),
+        'slug' => 'pipeline-org-'.uniqid(),
         'timezone' => 'America/Sao_Paulo',
         'is_active' => true,
     ]);
@@ -31,7 +31,7 @@ function aiGraderPipelineEnvironment(Organization $organization): CanvasEnvironm
     return CanvasEnvironment::query()->create([
         'organization_id' => $organization->id,
         'name' => 'Pipeline Canvas',
-        'slug' => 'pipeline-canvas-' . uniqid(),
+        'slug' => 'pipeline-canvas-'.uniqid(),
         'environment_type' => 'test',
         'base_url' => 'https://canvas.test',
         'api_token' => 'secret-token',
@@ -205,7 +205,7 @@ it('run pipeline collects and processes without publishing when teacher approval
         ->and($summary['publish'])->toBeNull();
 });
 
-it('run pipeline publishes for auto publish with review flags', function (): void {
+it('run pipeline requires teacher approval for the legacy publication mode', function (): void {
     $blueprint = aiGraderPipelineBlueprint(AiGraderBlueprintConfig::PUBLICATION_AUTO_PUBLISH_WITH_REVIEW_FLAGS);
 
     $collector = Mockery::mock(AiGraderSubmissionCollector::class);
@@ -214,19 +214,21 @@ it('run pipeline publishes for auto publish with review flags', function (): voi
 
     $collector->shouldReceive('collect')->once()->andReturn(['pending_created' => 2]);
     $processor->shouldReceive('process')->once()->andReturn(['ai_corrected' => 1, 'pending_teacher_approval' => 1]);
-    $publisher->shouldReceive('publish')->once()->andReturn(['published' => 1]);
+    $publisher->shouldNotReceive('publish');
 
     $summary = (new AiGraderRunPipelineJob(blueprintConfigId: $blueprint->id))->handle($collector, $processor, $publisher);
 
-    expect($summary['published'])->toBeTrue()
-        ->and($summary['publish'])->toBe(['published' => 1]);
+    expect($summary['published'])->toBeFalse()
+        ->and($summary['publish'])->toBeNull()
+        ->and($summary['collect'])->toBe(['pending_created' => 2])
+        ->and($summary['process'])->toBe(['ai_corrected' => 1, 'pending_teacher_approval' => 1]);
 });
 
 it('run pipeline command dispatches job', function (): void {
     $blueprint = aiGraderPipelineBlueprint();
     Bus::fake();
 
-    $this->artisan('ai-grader:run-pipeline --blueprint-config-id=' . $blueprint->id)
+    $this->artisan('ai-grader:run-pipeline --blueprint-config-id='.$blueprint->id)
         ->expectsOutput('GraderAI pipeline job dispatched.')
         ->assertExitCode(0);
 
@@ -248,7 +250,7 @@ it('run pipeline command executes synchronously', function (): void {
     $this->app->instance(AiGraderPendingProcessor::class, $processor);
     $this->app->instance(AiGraderCanvasPublisher::class, $publisher);
 
-    $this->artisan('ai-grader:run-pipeline --blueprint-config-id=' . $blueprint->id . ' --sync')
+    $this->artisan('ai-grader:run-pipeline --blueprint-config-id='.$blueprint->id.' --sync')
         ->expectsOutput('GraderAI pipeline summary')
         ->assertExitCode(0);
 });

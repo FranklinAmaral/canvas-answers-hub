@@ -17,8 +17,7 @@ class AiGraderProviderResolver
     public function __construct(
         private readonly AiGraderPromptBuilder $promptBuilder,
         private readonly AiGraderSanitizer $sanitizer,
-    ) {
-    }
+    ) {}
 
     public function resolve(?AiGraderAiProvider $provider = null): AiGraderProviderInterface
     {
