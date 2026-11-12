@@ -60,6 +60,23 @@ Os nomes, causas, resultados esperados/obtidos e correções dos 18 testes estã
 Os JSONs das auditorias antes/depois e o histórico de versões permanecem em
 [DEPENDENCIES.md](DEPENDENCIES.md).
 
+## Reexecução Afya — 2026-11-12
+
+PHP CLI 8.5.12 no Windows. Resultados desta execução:
+
+| Check | Resultado |
+| --- | --- |
+| Pest filtrado por AiGraderLti | 89 passaram; 436 assertions |
+| Pest completo | 260 passaram; 1035 assertions |
+| Pint --test nos dois arquivos de testes LTI revisados | pass |
+| composer audit --format=json | advisories e abandoned vazios |
+| npm.cmd audit --json | zero vulnerabilidades |
+| npm.cmd run build | passou; aviso de eval no htmx.esm.js preservado |
+| composer validate --strict | composer.json válido |
+| php tools/check-nette-licenses.php | passou |
+| Busca JWT em arquivos versionados | zero candidatos; 262 textos, quatro binários excluídos |
+| Simulação de atualização da cadeia Nette | zero remoções; nenhuma alteração de dependência aplicada |
+
 ## Limites
 
 PHP 8.4, workflow remoto, serviços web/worker/cron e ambiente alvo não foram

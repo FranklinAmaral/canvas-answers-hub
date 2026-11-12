@@ -4,6 +4,19 @@ Referência: commit `40a7e312791b0c87d2910017feb4c2a12fc63a38` e árvore local c
 alterações não commitadas. **Nenhum valor de token, payload ou chave é registrado
 neste documento ou no inventário de evidências.**
 
+## Revalidação Afya — 2026-11-12
+
+O checkout recebido já contém a retirada dos dois JWTs literais descrita abaixo.
+O helper e os cenários negativos foram preservados, assim como a geração RSA
+temporária dos testes de assinatura válida. Não foi necessário modificar novamente
+esses testes nem a autenticação da aplicação.
+
+Nova busca nos arquivos versionados existentes: 262 arquivos de texto examinados,
+quatro binários excluídos, zero candidatos compactos com header JSON contendo
+alg/enc. A busca inclui assinatura vazia e não imprime valores. Não cobre conteúdo
+fragmentado, codificações adicionais ou histórico. Nenhum token/chave foi incluído
+nas evidências documentais. Ver VALIDATION.md para os resultados desta execução.
+
 ## Estado confirmado
 
 **TOKENS FIXOS REMOVIDOS DOS TESTES.** Os dois literais foram substituídos por

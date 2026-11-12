@@ -44,6 +44,19 @@ comprova desativação da infraestrutura já implantada nem encerra alertas.
 | Volumes compartilhados | Checkout montado em app/web/worker/scheduler e volume MySQL. | Ambiente: permissões mínimas, backups e plano de transferência; não apagar volumes/banco existente. |
 | SELinux | Bind mounts sem labels declarados. | Ambiente: configurar labels/políticas para os serviços nativos quando aplicável; Segurança valida o achado original. |
 
+## Nova avaliação Afya — 2026-11-12
+
+Conforme retorno recebido, Docker/IaC e vulnerabilidades do composer.lock foram
+confirmados como resolvidos pela nova avaliação. Para os dois pontos restantes,
+foi revalidada a geração de JWTs em execução já presente no checkout e registrada
+a tentativa de eliminar a cadeia Nette por atualização compatível. Sem remoções
+na simulação, schema 1.3.5 e utils 4.1.3 permanecem individualmente sob BSD-3-Clause,
+com evidências e obrigações em PACKAGE-REVIEW.md. Resultados desta rodada estão
+em VALIDATION.md e a busca dos demais arquivos versionados em JWT-REVIEW.md.
+Pendente: nova validação de Segurança e revisão da classificação GPL por
+Segurança/Compliance; nenhuma homologação ou baixa automática foi declarada.
+
+
 ## Evidências e reavaliação
 
 - [VALIDATION.md](VALIDATION.md): checks atuais, ambiente e comparação histórica.

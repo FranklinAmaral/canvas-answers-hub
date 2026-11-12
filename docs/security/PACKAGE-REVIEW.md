@@ -123,6 +123,33 @@ com exit 1; vendor real e lockfiles permaneceram intactos. Segurança/Compliance
 deve validar a adoção documentada, a distribuição efetiva e a correlação dos
 quatro alertas originais. Não houve aprovação institucional.
 
+## Reavaliação Afya — 2026-11-12
+
+Investigação separada, reconfirmada por `composer why`: `nette/schema v1.3.5`
+é requisito de produção de `league/config v1.2.0 (^1.2)`, que vem de
+`league/commonmark 2.10.7 (^1.1.1)`, exigido por `laravel/framework v13.42.0
+(^2.8.1)`. `nette/utils v4.1.3` é requisito de produção de schema (`^4.0`).
+Ambos estão em `packages`, não em `packages-dev`; remover ferramentas de
+desenvolvimento não elimina essa cadeia. O conflito de utils com schema antigo
+não constitui uma segunda dependência de instalação.
+
+Foi executado `composer update league/commonmark league/config nette/schema
+nette/utils --with-dependencies --dry-run --no-scripts --no-interaction`, com
+acesso ao registro. O resolvedor propôs schema 1.4.0 e utils 4.1.6, além de dois
+auxiliares Symfony, com **zero remoções**. Nenhuma atualização foi aplicada.
+Remover config/CommonMark da cadeia atual viola requisitos do framework;
+substituí-los exigiria adaptação de dependências/framework desproporcional ao
+escopo. Não se demonstrou uma atualização compatível que elimine os pacotes.
+
+Decisão individual: **nette/schema 1.3.5 mantido sob BSD-3-Clause** e
+**nette/utils 4.1.3 mantido sob BSD-3-Clause**. A disponibilidade da alternativa
+foi reconfirmada nos links oficiais das versões exatas acima. Permanecem os
+avisos originais em vendor, THIRD-PARTY-NOTICES.md e docs/licenses/NETTE-LICENSE.md;
+`php tools/check-nette-licenses.php` passou. Composer/lock/vendor não foram
+editados para simular remoção. A árvore resolvida e o lockfile continuam contendo
+ambos. Solicitar revisão da classificação GPL a Segurança/Compliance; esta decisão
+não é aprovação institucional nem encerramento dos alertas.
+
 ## Encaminhamento
 
 Manter as versões auditadas, solicitar novo scan e decisão contextual de Segurança
